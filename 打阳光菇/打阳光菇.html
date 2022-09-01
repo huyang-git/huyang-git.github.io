@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./my-minireset.css">
+    <title>打阳光菇</title>
+    <style>
+        ul {
+            width: 1520px;
+            height: 720px;
+            background-color: lightblue;
+            position: relative;
+            overflow: hidden;
+            background-image: url(./27140f596cba8a8ae70f18229c41f52906a8622e.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        ul li {
+            position: absolute;
+            background-image: url(./阳光菇.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="stage">
+        <li></li>
+    </ul>
+    <script src="./js.cookie.min.js"></script>
+
+    <script>
+        var ul = document.querySelector("ul");
+        var li = document.getElementsByTagName("li");
+        var h = 0;
+        var z = 0;
+
+        var t = setInterval(function () {
+            var x = Math.floor(Math.random() * 100 + 50);
+            var y = Math.floor(Math.random() * 100 + 50);
+            var i = Math.floor(Math.random() * 1500) - x;
+            var j = Math.floor(Math.random() * 640) - y;
+            if (j > 720) {
+                j = 720;
+            }
+            if (i > 1520) {
+                i = 1520
+            }
+            if (i < 0) {
+                i = 0;
+            }
+            if (j < 0) {
+                j = 0;
+            }
+            var node = document.createElement("li");
+            node.style.width = x + "px";
+            node.style.height = y + "px";
+            node.style.top = j + "px";
+            node.style.left = i + "px";
+            ul.appendChild(node);
+            if (li.length > 10) {
+                end();
+            }
+        }, 500);
+        function end() {
+            clearInterval(t);
+
+            z = Number(Cookies.get("max"));
+            if (z < h) {
+                z = h;
+
+                Cookies.set("max", z, { expires: 7 });
+                alert("你点击的不是阳光菇,你被僵尸吃掉了脑子!!!"
+                    + "                                          "
+                    + "你一共收获了" + h + "颗阳光"
+                    + "                                                                                        "
+                    + "你打破了之前的记录,加油吧少年,你还可以更强!");
+
+            } else {
+                alert("你点击的不是阳光菇,你被僵尸吃掉了脑子!!!"
+                    + "                                          "
+                    + "你一共只收获了" + h + "颗阳光"
+                    + "                                                                                       "
+                    + "曾经的你也是一个获取过" + z + "颗阳光的少年啊!加油吧!");
+            }
+            location.reload();
+        }
+
+        ul.onclick = function (e) {
+
+            if (e.target == ul) {
+                end();
+            }
+            h++;
+            ul.removeChild(e.target);
+        }
+    </script>
+</body>
+
+</html>

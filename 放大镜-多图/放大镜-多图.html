@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.1.1/css/all.css" />
+    <style>
+        .fangda {
+            width: 1510px;
+            height: 1000px;
+            position: relative;
+        }
+
+        #left {
+            width: 20px;
+            font-size: 32px;
+            height: 20px;
+            position: absolute;
+            color: #2b4f6e;
+            top: 135px;
+            left: -55px;
+        }
+
+        #right {
+            width: 20px;
+            font-size: 32px;
+            height: 20px;
+            position: absolute;
+            top: 135px;
+            color: #2b4f6e;
+            left: 340px;
+
+        }
+
+        .thumb {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            margin-left: 300px;
+        }
+
+        .thumb img {
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .thumb .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+
+        .fangda .zoom {
+            width: 600px;
+            height: 600px;
+            margin-left: 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoom img {
+            position: absolute;
+            top: 0;
+            display: block;
+            left: 0;
+            
+        }
+
+        .fangda ul.dots {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .fangda ul.dots li {
+            width: 20px;
+            height: 20px;
+            background-color: rgb(227, 98, 98);
+            margin: 0 20px;
+            border-radius: 50%;
+            z-index: 99;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fangda">
+        <div class="thumb">
+            <img src="./1.jpg" alt="">
+            <img src="./2.jpg" alt="">
+            <img src="./3.jpg" alt="">
+            <i id="left" class="fa fa-arrow-left" aria-hidden="true"></i>
+            <i id="right" class="fa fa-arrow-right" aria-hidden="true"></i>
+            <ul class="dots">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="mask">
+            </div>
+        </div>
+        <hr>
+        <div class="zoom">
+            <img src="./1.jpg" alt="">
+            <img src="./2.jpg" alt="">
+            <img src="./3.jpg" alt="">
+        </div>
+    </div>
+
+
+    <script>
+        var current = 0;
+        var level = 3;//放大倍数
+        var thumbEl = document.querySelector(".fangda .thumb");
+        var maskEl = document.querySelector(".fangda .thumb .mask");
+        var zoomEl = document.querySelector(".fangda .zoom");
+        var fangda = document.getElementsByClassName("fangda")[0];
+        var dots = document.getElementsByClassName("dots")[0].getElementsByTagName("li");
+        var imgs = thumbEl.getElementsByTagName("img");
+        var zoomImgEl = zoomEl.getElementsByTagName("img");
+        var arrowle = document.getElementById("left");
+        var arrowri = document.getElementById("right");
+
+       
+
+        var zoomWidth = zoomEl.offsetWidth;
+        var zoomHeight = zoomEl.offsetHeight;//放大图的宽高
+
+        var thumbElWidth = thumbEl.offsetWidth;
+        var thumbElHeight = thumbEl.offsetHeight;//缩略图的宽高
+
+        var maskElWidth = thumbElWidth / level;
+        var maskElHeight = thumbElHeight / level;//遮罩层的宽高
+
+        maskEl.style.width = maskElWidth + "px";
+        maskEl.style.height = maskElHeight + "px";//设置遮罩层的宽高
+
+        var offsetLeft = thumbEl.offsetLeft;
+        var offsetTop = thumbEl.offsetTop;
+
+        var showIt = function (n) {
+            for (var i = 0; i < imgs.length; i++) {
+                if (i === n) {
+                    imgs[i].style.opacity = 1;
+                    dots[i].style.background = "white";
+                    zoomImgEl[i].style.opacity = 1;
+
+                } else {
+                    imgs[i].style.opacity = 0;
+                    dots[i].style.background = "rgb(227, 98, 98)"
+                    zoomImgEl[i].style.opacity = 0;
+                }
+            }
+        }
+
+        showIt(0);
+
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].title = i;
+            dots[i].onclick = function () {
+                console.log(this.title);
+                var currents = Number(this.title);
+               
+                current = currents;//里面的currents来改变外面的current!!!    
+                showIt(currents);
+            }
+        }
+        for (var i = 0; i < 3; i++) {
+            
+             zoomImgEl[i].style.width = level * 100 + "%";
+        }
+       
+        arrowle.onclick = function () {
+
+            current--;
+            if (current < 0) {
+                current = imgs.length - 1;
+
+            }
+            console.log(current);
+            showIt(current);
+        }
+
+        function showNext() {
+            current++;
+            if (current >= imgs.length) {
+                current = 0;
+            }
+            showIt(current);
+        }
+        arrowri.onclick = showNext;
+
+      
+      
+
+        thumbEl.onmousemove = function () {
+           
+            var mx = event.pageX - offsetLeft;
+            var my = event.pageY - offsetTop;  //鼠标的坐标
+
+            var maskX = mx - maskElWidth / 2;
+            var maskY = my - maskElHeight / 2;//遮罩层的左上角坐标
+            if (maskX < 0) {
+                maskX = 0;
+            }
+            if (maskX > thumbElWidth - maskElWidth) {
+                maskX = thumbElWidth - maskElWidth;
+            }
+            if (maskY < 0) {
+                maskY = 0;
+            }
+            if (maskY > thumbElHeight - maskElHeight) {
+                maskY = thumbElHeight - maskElHeight;
+            }
+
+            // 遮罩层跟着鼠标走
+            maskEl.style.left = maskX + "px";
+            maskEl.style.top = maskY + "px";
+
+            zoomImgEl[current].style.left = -(zoomWidth / maskElWidth) * maskX   + "px";
+            zoomImgEl[current].style.top = -(zoomHeight / maskElHeight) * maskY   + "px";//把遮罩层的左上角坐标和放大图对应
+        };
+
+        thumbEl.onmouseleave = function () {
+            zoomImgEl[current].style.opacity = "0";
+        }
+
+        thumbEl.onmouseenter = function () {
+            zoomImgEl[current].style.opacity = "1";
+        }
+
+
+    </script>
+</body>
+
+</html>

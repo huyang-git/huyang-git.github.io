@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(./22.jpg);
+            z-index: -1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .sfq {
+            width: 500px;   /* 以最窄的那副图片的宽度为基准,大盒子就不会漏底 */
+            height: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .sfq div {
+            width: 50px;
+            height: 500px;
+            background-size: auto 100%;
+            background-position: center;
+            transition: all 0.8s;
+            background-repeat: no-repeat;
+        }
+
+        .sfq div:nth-child(1) {
+            background-image: url("./11.jpg");
+        }
+
+        .sfq div:nth-child(2) {
+            width: 350px;
+            background-image: url("./22.jpg");
+        }
+
+        .sfq div:nth-child(3) {
+            background-image: url("./33.jpg");
+        }
+
+        .sfq div:nth-child(4) {
+            background-image: url("./44.jpg");
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sfq">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script>
+        var imgs = document.querySelectorAll(".sfq div");
+        var imgbgs = ["./11.jpg", "./22.jpg", "./33.jpg", "./44.jpg"];
+        imgs.forEach(function (img, i) {
+            img.onclick = function () {
+                imgs.forEach(function (el, index) {
+                    if (index === i) {
+                        el.style.width = "350px";
+                        document.body.style.backgroundImage = `url('${imgbgs[index]}')`;    //把imgbgs数组里的index项赋给背景图片
+                    }
+                    else {
+                        el.style.width = "50px";
+                    }
+                });
+            };
+        }); 
+
+    </script>
+</body>
+
+</html>

@@ -17,13 +17,7 @@
             flex-wrap: wrap;
         }
 
-        a {
-            width: 30%;
-            height: 30vh;
-            background-color: aqua;
-            position: relative;
-        }
-
+       
         .vita {
             position: fixed;
             background-image: url("简历背景.jpg");
@@ -60,7 +54,6 @@
 
         .porject {
             width: 1200px;
-            height: 100vh;
             margin-left: 200px;
             display: flex;
             flex-wrap: wrap;
@@ -70,15 +63,34 @@
 
         p {
             position: absolute;
+            text-align: center;
             top: 100%;
             left: 40%;
             /* width: 50px; */
             height: 20px;
         }
+        h2{
+            font-size: 32px;
+            width: 8em;
+            text-align: center;
+            margin: 30px auto;
+            line-height: 2em;
+            font-weight: 700;
+            color: rgb(225, 17, 14);
+        }
 
         .html {
             width: 100%;
-            height: 30vh;
+            height: 330px;
+            margin-left: 200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-around;
+        }
+        .xiaoyouxi {
+            width: 100%;
+            height: 330px;
             margin-left: 200px;
             display: flex;
             flex-wrap: wrap;
@@ -87,13 +99,69 @@
         }
         .js {
             width: 100%;
-            height: 30vh;
+            height: 330px;
             margin-left: 200px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-content: space-around;
         }
+        .zhenxing{
+            background-image: url(./整形截图.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .fuzhuang{
+            background-image: url(./服装截图.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .ertong{
+            background-image: url(./儿童截图.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        } 
+        .fangdajing{
+            background-image: url(./放大镜截图.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        } 
+        .shoufengqin{
+            background-image: url(./手风琴截图.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        } 
+        .yangguang{
+            background-image: url(./打阳光菇截图.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        } 
+        .baikuai{
+            background-image: url(./别踩白块儿截图.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        } 
+        .xiuxian{
+            background-image: url(./修仙截图.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        } 
+        
+        a {
+            width: 300px;
+            height: 270px;
+            background-color: aqua;
+            position: relative;
+        }
+
     </style>
 </head>
 
@@ -108,7 +176,9 @@
             <span>电话:15775016792</span>
         </div>
         <div class="porject">
+            <h2>个人学习路径</h2>
             <div class="html">
+                <h3>html-css排版</h3>
                 <a href="./整形网站/01-小试牛刀.html" class="zhenxing">
                     <p>整形网站</p>
                 </a>
@@ -120,14 +190,24 @@
                 </a>
             </div>
             <div class="js">
-                <a href="">
+                <h3>JavaScript案例</h3>
+                <a href="./放大镜-多图/放大镜-多图.html" class="fangdajing">
                     <p>放大镜-多图</p>
                 </a>
-                <a href="">
+                <a href="./手风琴/手风琴练手.html" class="shoufengqin">
                     <p>手风琴</p>
                 </a>
-                <a href="">
+            </div>
+            <div class="xiaoyouxi">
+                <h3>小游戏</h3>
+                <a href="./别踩白块儿/01-别踩白块儿.html" class="baikuai">
                     <p>别踩白块儿</p>
+                </a>
+                <a href="./打阳光菇/打阳光菇.html" class="yangguang">
+                    <p>打阳光菇</p>
+                </a>
+                <a href="./了不起的修仙模拟器/了不起的修仙模拟器.html" class="xiuxian">
+                    <p>了不起的修仙模拟器</p>
                 </a>
             </div>
         </div>
