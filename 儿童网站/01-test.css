@@ -1,0 +1,964 @@
+.title2 {
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 50px;
+  z-index: 1;
+}
+.title2 .wrap {
+  width: 1520px;
+  margin: 0 auto;
+  position: relative;
+}
+.title2 .wrap .picture1 {
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+  width: 18px;
+  height: 16px;
+  background-color: #000000;
+  background-image: url("imgs/mon-spr.png");
+  background-repeat: no-repeat;
+  background-position: 0 -16px;
+}
+.title2 .wrap .picture2 {
+  float: left;
+  width: 20px;
+  margin-top: 15px;
+  height: 17px;
+  background-color: #000000;
+  background-image: url(imgs/mon-spr.png);
+  background-repeat: no-repeat;
+  background-position: -23px 1px;
+}
+.title2 .wrap .picture2:hover {
+  float: left;
+  width: 20px;
+  height: 17px;
+  margin-top: 15px;
+  background-color: #000000;
+  background-image: url(imgs/mon-spr.png);
+  background-repeat: no-repeat;
+  background-position: -23px -14px;
+  cursor: pointer;
+}
+.title2 .wrap .picture3 {
+  float: left;
+  width: 24px;
+  height: 17px;
+  margin-top: 15px;
+  background-color: #000000;
+  background-image: url(imgs/mon-spr.png);
+  background-repeat: no-repeat;
+  background-position: -45px 2px;
+}
+.title2 .wrap .picture3:hover {
+  float: left;
+  width: 24px;
+  height: 17px;
+  margin-top: 15px;
+  background-color: #000000;
+  background-image: url(imgs/mon-spr.png);
+  background-repeat: no-repeat;
+  background-position: -45px -14px;
+  cursor: pointer;
+}
+.title2 .wrap .picture4 {
+  float: left;
+  width: 20px;
+  height: 17px;
+  margin-top: 15px;
+  background-color: #000000;
+  background-image: url(imgs/mon-spr.png);
+  background-repeat: no-repeat;
+  background-position: -70px 1px;
+}
+.title2 .wrap .picture4:hover {
+  float: left;
+  width: 20px;
+  height: 17px;
+  margin-top: 15px;
+  background-color: #000000;
+  background-image: url(imgs/mon-spr.png);
+  background-repeat: no-repeat;
+  background-position: -70px -14px;
+  cursor: pointer;
+}
+.title2 .wrap .picture5 {
+  float: left;
+  width: 20px;
+  height: 17px;
+  margin-top: 15px;
+  background-color: #000000;
+  background-image: url(imgs/mon-spr.png);
+  background-repeat: no-repeat;
+  background-position: -94px 1px;
+  margin-right: 40px;
+}
+.title2 .wrap .picture5:hover {
+  float: left;
+  width: 20px;
+  height: 17px;
+  margin-top: 15px;
+  background-color: #000000;
+  background-image: url(imgs/mon-spr.png);
+  background-repeat: no-repeat;
+  background-position: -94px -14px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+.title2 .wrap .shouji {
+  overflow: hidden;
+  float: left;
+  width: 110px;
+  border-radius: 5px;
+  height: 22px;
+  font-size: 12px;
+  margin-top: 10px;
+  border: 1px solid rgba(178, 178, 178, 0.647);
+}
+.title2 .wrap .shouji img {
+  float: left;
+  margin-top: 3px;
+}
+.title2 .wrap .shouji p {
+  float: left;
+  margin-top: 3px;
+  color: white;
+}
+.title2 .wrap .href {
+  float: left;
+  width: 350px;
+  margin-top: 12px;
+}
+.title2 .wrap .href a {
+  float: left;
+  margin-left: 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+.title2 .wrap .href:hover a {
+  text-decoration: underline;
+}
+.title2 .wrap .x {
+  float: left;
+  width: 20px;
+  height: 17px;
+  margin-top: 15px;
+  background-color: #000000;
+  background-image: url(imgs/cross2.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  margin-left: 850px;
+}
+.title2 .wrap .x:hover {
+  float: left;
+  width: 20px;
+  height: 17px;
+  margin-top: 15px;
+  background-color: #000000;
+  background-image: url(imgs/cross2.png);
+  background-repeat: no-repeat;
+  background-position: 0px -22px;
+  margin-left: 850px;
+  cursor: pointer;
+}
+.header {
+  background-color: #a2a2a2;
+  position: relative;
+  width: 100%;
+  padding-top: 100px;
+  height: 700px;
+}
+.header .wrap {
+  width: 1500px;
+  position: relative;
+  margin: 0 auto;
+}
+.header .wrap .mask {
+  position: absolute;
+  top: 120px;
+  left: 200px;
+  width: 80%;
+  height: 200px;
+}
+.header .wrap .mask .top {
+  overflow: hidden;
+  color: white;
+}
+.header .wrap .mask .top .i1 {
+  color: #f29b1a;
+  float: left;
+  font-size: 30px;
+  margin-top: 35px;
+  margin-right: 10px;
+  margin-left: 40px;
+}
+.header .wrap .mask .top h1 {
+  float: left;
+  font-size: 35px;
+  margin: 30px;
+  margin-right: 400px;
+  font-family: "Indie Flower", cursive !important;
+}
+.header .wrap .mask .top h1 span {
+  color: red;
+}
+.header .wrap .mask .top .i2 {
+  float: left;
+  font-size: 30px;
+  margin-top: 35px;
+  margin-right: 10px;
+  margin-left: 40px;
+  color: red;
+}
+.header .wrap .mask .top p {
+  width: 200px;
+  float: left;
+  font-size: 12px;
+  margin-top: 40px;
+}
+.header .wrap .mask .bottom {
+  background-color: white;
+  overflow: hidden;
+  border-radius: 57px;
+  width: 1000px;
+  margin-left: 30px;
+}
+.header .wrap .mask .bottom h2 {
+  float: left;
+  font-size: 14px;
+  padding: 30px;
+  margin-left: -15px;
+}
+.header .wrap .mask .bottom h2:hover {
+  cursor: pointer;
+}
+.header .wrap .mask .bottom h2:first-child {
+  margin-left: 10px;
+  color: #f4ae22;
+}
+.header .wrap .mask .bottom h2:last-child {
+  margin-right: 100px;
+}
+.header .wrap .mask .bottom .logo .fa-facebook {
+  color: lightblue;
+}
+.header .wrap .mask .bottom .logo .fa-twitter {
+  color: green;
+}
+.header .wrap .mask .bottom .logo .fa-linkedin {
+  color: #e5861b;
+}
+.header .wrap .mask .bottom .logo i {
+  margin-right: 40px;
+  margin-top: 30px;
+  float: right;
+}
+.header .back {
+  overflow: hidden;
+  height: 700px;
+}
+.header .back img {
+  float: left;
+  height: 840px;
+  width: 540px;
+}
+.header .back .title {
+  overflow: hidden;
+  float: left;
+  width: 380px;
+  height: 700px;
+  margin-left: 230px;
+  margin-right: 100px;
+}
+.header .back .title h1 {
+  width: 300px;
+  height: 50px;
+  margin-top: 340px;
+  font-weight: 300;
+  font-size: 14px;
+}
+.header .back .title h2 {
+  margin-top: -25px;
+  font-size: 38px;
+  margin-bottom: 20px;
+  font-weight: 800;
+  color: white;
+}
+.header .back .title h3 {
+  color: white;
+  margin-bottom: 40px;
+}
+.header .back button {
+  float: left;
+  padding: 20px;
+  color: white;
+  border: none;
+  border-radius: 20px 0 20px 0;
+  background-color: #f64323;
+}
+.card {
+  height: 400px;
+  width: 100%;
+}
+.card .wrap {
+  overflow: hidden;
+  text-align: center;
+  width: 1400px;
+  margin-left: 100px;
+  margin: 0 auto;
+  color: white;
+}
+.card .wrap .card2 {
+  margin-top: 50px;
+  width: 33%;
+  height: 400px;
+  float: left;
+  text-align: center;
+  position: relative;
+  z-index: 0;
+}
+.card .wrap .card2 i {
+  margin-right: 90px;
+  background-color: red;
+  padding: 40px;
+  font-size: 30px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.card .wrap .card2 .text {
+  background-color: red;
+  width: 280px;
+  padding: 40px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  height: 200px;
+  z-index: -1;
+}
+.card .wrap .card2 .text h1 {
+  line-height: 3em;
+  margin-top: 33px;
+}
+.card .wrap .card2 .text p {
+  line-height: 2em;
+  font-weight: 300;
+}
+.card .wrap .card3 {
+  margin-top: 50px;
+  width: 33%;
+  height: 400px;
+  float: left;
+  text-align: center;
+  position: relative;
+  z-index: 0;
+}
+.card .wrap .card3 i {
+  margin-right: 90px;
+  background-color: #d9d02c;
+  padding: 40px;
+  font-size: 30px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.card .wrap .card3 .text {
+  background-color: #d9d02c;
+  width: 280px;
+  padding: 40px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  height: 200px;
+  z-index: -1;
+}
+.card .wrap .card3 .text h1 {
+  line-height: 3em;
+  margin-top: 33px;
+}
+.card .wrap .card3 .text p {
+  line-height: 2em;
+  font-weight: 300;
+}
+.card .wrap .card4 {
+  margin-top: 50px;
+  width: 33%;
+  height: 400px;
+  float: left;
+  text-align: center;
+  position: relative;
+  z-index: 0;
+}
+.card .wrap .card4 i {
+  margin-right: 90px;
+  background-color: #00ff33;
+  padding: 40px;
+  font-size: 30px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.card .wrap .card4 .text {
+  background-color: #00ff33;
+  width: 280px;
+  padding: 40px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  height: 200px;
+  z-index: -1;
+}
+.card .wrap .card4 .text h1 {
+  line-height: 3em;
+  margin-top: 33px;
+}
+.card .wrap .card4 .text p {
+  line-height: 2em;
+  font-weight: 300;
+}
+.about {
+  background-color: rgba(229, 229, 228, 0.342);
+  position: relative;
+}
+.about .wrap {
+  width: 1520px;
+  margin: 0 auto;
+}
+.about .wrap .left {
+  position: relative;
+  width: 40%;
+  height: 500px;
+}
+.about .wrap .left img {
+  position: absolute;
+  top: 50px;
+  left: 132px;
+  width: 86%;
+  height: 80%;
+}
+.about .wrap .right {
+  position: absolute;
+  top: 50px;
+  left: 55%;
+  width: 28%;
+  height: 100%;
+}
+.about .wrap .right h2 {
+  font-size: 16px;
+  line-height: 2em;
+}
+.about .wrap .right h3 {
+  font-size: 28px;
+}
+.about .wrap .right p {
+  font-weight: 300;
+  line-height: 2em;
+  width: 370px;
+}
+.about .wrap .right button {
+  padding: 25px;
+  border: none;
+  background-color: #f8c91d;
+  border-radius: 25px 0 25px 0;
+  margin-top: 30px;
+}
+.about .wrap .right button:hover {
+  cursor: pointer;
+  background-color: rgba(207, 209, 89, 0.989);
+}
+.packages {
+  background-color: #17a2b8 !important;
+  text-align: center;
+  height: 800px;
+}
+.packages .wrap {
+  width: 1520px;
+  margin: 0 auto;
+}
+.packages .wrap .top {
+  padding-top: 100px;
+}
+.packages .wrap .top h1 {
+  line-height: 2em;
+  color: rgba(208, 87, 43, 0.785);
+}
+.packages .wrap .top h2 {
+  line-height: 2em;
+  font-size: 28px;
+  color: white;
+  margin-bottom: 50px;
+}
+.packages .wrap .bottom {
+  overflow: hidden;
+  margin-left: 160px;
+}
+.packages .wrap .bottom .card {
+  background-color: white;
+  float: left;
+  margin-left: 40px;
+  width: 350px;
+  border-radius: 10px;
+  height: 450px;
+  text-align: center;
+}
+.packages .wrap .bottom .card img {
+  width: 50px;
+  height: 50px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+.packages .wrap .bottom .card h3 {
+  line-height: 2em;
+  color: #68ceac;
+  padding-bottom: 30px;
+}
+.packages .wrap .bottom .card p {
+  width: 80%;
+  margin-left: 35px;
+  line-height: 2em;
+  font-weight: 300;
+}
+.packages .wrap .bottom .card button {
+  padding: 15px;
+  color: white;
+  margin-top: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: none;
+  border-radius: 40px 0 40px 0;
+  background-color: #e33d20;
+}
+.packages .wrap .bottom .card button:hover {
+  cursor: pointer;
+  background-color: #a13c09;
+}
+.packages .wrap .bottom .card2 {
+  background-color: white;
+  float: left;
+  margin-left: 40px;
+  width: 350px;
+  border-radius: 10px;
+  height: 450px;
+  text-align: center;
+}
+.packages .wrap .bottom .card2 img {
+  width: 50px;
+  height: 50px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+.packages .wrap .bottom .card2 h3 {
+  line-height: 2em;
+  color: #99ff7f;
+  padding-bottom: 30px;
+}
+.packages .wrap .bottom .card2 p {
+  width: 80%;
+  margin-left: 35px;
+  line-height: 2em;
+  font-weight: 300;
+}
+.packages .wrap .bottom .card2 button {
+  padding: 15px;
+  margin-top: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: none;
+  border-radius: 40px 0 40px 0;
+  background-color: #e3d620;
+}
+.packages .wrap .bottom .card2 button:hover {
+  cursor: pointer;
+  background-color: #bbb937;
+}
+.packages .wrap .bottom .card3 {
+  background-color: white;
+  float: left;
+  margin-left: 40px;
+  width: 350px;
+  border-radius: 10px;
+  height: 450px;
+  text-align: center;
+}
+.packages .wrap .bottom .card3 img {
+  width: 50px;
+  height: 50px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+.packages .wrap .bottom .card3 h3 {
+  line-height: 2em;
+  color: #df7b33;
+  padding-bottom: 30px;
+}
+.packages .wrap .bottom .card3 p {
+  width: 80%;
+  margin-left: 35px;
+  line-height: 2em;
+  font-weight: 300;
+}
+.packages .wrap .bottom .card3 button {
+  padding: 15px;
+  margin-top: 30px;
+  border: none;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 40px 0 40px 0;
+  background-color: #32df29;
+}
+.packages .wrap .bottom .card3 button:hover {
+  cursor: pointer;
+  background-color: #2ebd27;
+  color: white;
+}
+.price {
+  padding: 100px;
+  overflow: hidden;
+}
+.price .wrap {
+  width: 1167px;
+  margin: 0 auto;
+}
+.price .wrap .left {
+  float: left;
+  width: 340px;
+}
+.price .wrap .left h1 {
+  line-height: 2em;
+  color: #d67e47;
+}
+.price .wrap .left h2 {
+  font-size: 28px;
+  line-height: 2em;
+}
+.price .wrap .left p {
+  line-height: 2em;
+  font-weight: 300;
+}
+.price .wrap .right {
+  overflow: hidden;
+  float: left;
+  padding-left: 20px;
+}
+.price .wrap .right .card {
+  width: 400px;
+  float: left;
+}
+.price .wrap .right .card .qian {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 30px;
+  background-color: #3eddbb;
+  position: relative;
+}
+.price .wrap .right .card .qian span {
+  position: absolute;
+  top: 30px;
+  left: 23px;
+  width: 40px;
+  display: block;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 50%;
+  height: 40px;
+}
+.price .wrap .right .card .qian::before {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  content: "";
+}
+.price .wrap .right .card h1 {
+  margin-top: 20px;
+  line-height: 2em;
+  font-size: 22px;
+}
+.price .wrap .right .card ul li {
+  overflow: hidden;
+}
+.price .wrap .right .card ul li i {
+  float: left;
+  line-height: 3em;
+  margin-right: 15px;
+  color: #3eddbb;
+}
+.price .wrap .right .card ul li p {
+  float: left;
+  font-weight: 300;
+  line-height: 3em;
+}
+.price .wrap .right .card button {
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-top: 80px;
+  border: none;
+  border-radius: 30px 0 30px 0;
+  background-color: #3eddbb;
+}
+.price .wrap .right .card button:hover {
+  cursor: pointer;
+}
+.price .wrap .right .card2 {
+  width: 400px;
+  float: left;
+}
+.price .wrap .right .card2 .qian {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 30px;
+  background-color: #e83737;
+  position: relative;
+}
+.price .wrap .right .card2 .qian span {
+  position: absolute;
+  top: 30px;
+  left: 23px;
+  width: 40px;
+  display: block;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 50%;
+  height: 40px;
+}
+.price .wrap .right .card2 .qian::before {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  content: "";
+}
+.price .wrap .right .card2 h1 {
+  margin-top: 20px;
+  line-height: 2em;
+  font-size: 22px;
+}
+.price .wrap .right .card2 ul li {
+  overflow: hidden;
+}
+.price .wrap .right .card2 ul li i {
+  float: left;
+  line-height: 3em;
+  margin-right: 15px;
+  color: #e83737;
+}
+.price .wrap .right .card2 ul li p {
+  float: left;
+  font-weight: 300;
+  line-height: 3em;
+}
+.price .wrap .right .card2 button {
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-top: 80px;
+  border: none;
+  border-radius: 30px 0 30px 0;
+  background-color: #e83737;
+}
+.news {
+  padding: 100px;
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.news .wrap {
+  widows: 1000px;
+  margin: 0 auto;
+}
+.news .wrap .title h1 {
+  margin-bottom: -20px;
+  font-size: 16px;
+  color: #dc7b20;
+}
+.news .wrap .title h2 {
+  font-size: 28px;
+  line-height: 4em;
+}
+.news .wrap .card {
+  overflow: hidden;
+  width: 700px;
+  height: 260px;
+  margin: 0 auto;
+  background-color: #e55353;
+}
+.news .wrap .card img {
+  float: left;
+  width: 80px;
+  height: 80px;
+  padding: 30px;
+  padding-bottom: 100px;
+}
+.news .wrap .card .text {
+  overflow: hidden;
+  margin-top: 30px;
+  color: white;
+}
+.news .wrap .card .text h3 {
+  font-size: 22px;
+  text-align: left;
+  line-height: 2em;
+}
+.news .wrap .card .text h4 {
+  font-size: 15px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.593);
+  line-height: 2em;
+}
+.news .wrap .card .text p {
+  text-align: left;
+  padding: 20px;
+  margin-left: -20px;
+}
+.news .wrap .bottom {
+  overflow: hidden;
+  margin-left: 200px;
+  margin-top: 50px;
+}
+.news .wrap .bottom .box {
+  float: left;
+  width: 150px;
+}
+.news .wrap .bottom .box h1 {
+  line-height: 2em;
+  font-size: 30px;
+}
+.news .wrap .bottom .box:nth-child(1) {
+  color: lightblue;
+}
+.news .wrap .bottom .box:nth-child(2) {
+  color: bisque;
+}
+.news .wrap .bottom .box:nth-child(3) {
+  color: lightgreen;
+}
+.news .wrap .bottom .box:nth-child(4) {
+  color: red;
+}
+.news .wrap .bottom .box span {
+  color: black;
+}
+.bottom2 {
+  background-color: #ffc107;
+  padding: 80px;
+}
+.bottom2 .wrap {
+  width: 1400px;
+  margin: 0 auto;
+}
+.bottom2 .wrap .left {
+  float: left;
+  margin-left: 100px;
+  margin-top: -10px;
+  font-size: 28px;
+  color: white;
+}
+.bottom2 .wrap .right {
+  float: right;
+  margin-right: 100px;
+}
+.bottom2 .wrap .right button {
+  padding: 20px;
+  margin-top: -15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: none;
+  border-radius: 30px 0 30px 0;
+  background-color: red;
+  color: white;
+}
+.bottom2 .wrap .right button:hover {
+  background-color: #ac0303;
+  cursor: pointer;
+}
+.footer {
+  padding: 200px;
+  background-color: #343a40;
+  color: white;
+}
+.footer .wrap {
+  width: 1520px;
+  margin: 0 auto;
+}
+.footer .wrap .top {
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+.footer .wrap .top .left {
+  width: 370px;
+  float: left;
+}
+.footer .wrap .top .left h1 {
+  font-size: 20px;
+  color: #f74d0f;
+  line-height: 3em;
+}
+.footer .wrap .top .left p {
+  line-height: 2em;
+  padding-bottom: 20px;
+}
+.footer .wrap .top .left input {
+  width: 250px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+}
+.footer .wrap .top .left button {
+  padding: 17px;
+  padding-left: 22px;
+  padding-right: 22px;
+  border: none;
+  margin-left: 10px;
+  color: white;
+  background-color: red;
+  border-radius: 30px;
+}
+.footer .wrap .top .left button:hover {
+  cursor: pointer;
+  background-color: #bd2525;
+}
+.footer .wrap .top .right {
+  float: left;
+  overflow: hidden;
+  padding-left: 250px;
+}
+.footer .wrap .top .right .text {
+  float: left;
+  padding-right: 60px;
+}
+.footer .wrap .top .right .text h1 {
+  font-size: 20px;
+  color: #f74d0f;
+  line-height: 3em;
+}
+.footer .wrap .top .right .text ul li {
+  line-height: 40px;
+  font-weight: 300;
+}
+.footer .wrap .bottom {
+  text-align: center;
+  margin-top: 40px;
+}
+.footer .wrap .bottom p i {
+  color: red;
+}
+.footer .wrap .bottom p a {
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+}
+/*# sourceMappingURL=./01-test.css.map */

@@ -1,0 +1,448 @@
+.doctors {
+  padding: 50px 0;
+}
+.doctors .wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+.doctors .wrapper .title {
+  text-align: center;
+}
+.doctors .wrapper .title h3 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.doctors .list {
+  overflow: hidden;
+  width: 900px;
+}
+.doctors .list .card {
+  width: calc(32% - 10px);
+  float: left;
+  margin: 10px;
+  text-align: center;
+}
+.doctors .list .card img {
+  width: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 10px solid rgba(219, 123, 123, 0.056);
+}
+.doctors .list .card img:hover {
+  border: 10px solid #2424db;
+}
+.doctors .list .card .icons i {
+  margin: 5px;
+}
+.picture {
+  background-image: url(hero-bg.jpg);
+  height: 600px;
+}
+.picture h3 {
+  padding-top: 150px;
+  margin-left: 150px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: aqua;
+}
+.picture p {
+  margin-left: 150px;
+  font-size: 35px;
+  margin-right: 800px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.picture button {
+  margin-left: 150px;
+  color: white;
+  padding-left: 40px;
+  font-size: 16px;
+  padding-top: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  padding-right: 40px;
+  border: 1px solid #262fd3;
+  background-color: #3da5ba;
+}
+.gallery {
+  width: 100%;
+  height: 620px;
+  overflow: hidden;
+}
+.gallery .left {
+  width: 75%;
+  float: left;
+  overflow: hidden;
+}
+.gallery .left li {
+  width: calc(33% - 15px);
+  height: 300px;
+  background-color: bisque;
+  background-size: cover;
+  background-position: center;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.gallery .left li:nth-child(1) {
+  background-image: url("imgs/gallery-1.jpg");
+}
+.gallery .left li:nth-child(2) {
+  background-image: url("imgs/gallery-2.jpg");
+}
+.gallery .left li:nth-child(3) {
+  background-image: url("imgs/gallery-3.jpg");
+}
+.gallery .left li:nth-child(4) {
+  background-image: url("imgs/gallery-5.jpg");
+}
+.gallery .left li:nth-child(5) {
+  background-image: url("imgs/gallery-6.jpg");
+}
+.gallery .left li:nth-child(6) {
+  background-image: url("imgs/gallery-7.jpg");
+}
+.gallery .left li:hover {
+  box-shadow: 0 0 20px 0 black;
+}
+.gallery .right {
+  width: 25%;
+  height: 620px;
+  background-color: #4623d3;
+  float: right;
+  background-image: url("imgs/gallery-4.jpg");
+  background-size: cover;
+  background-position: center top;
+}
+.gallery .right:hover {
+  box-shadow: 0 0 20px 0 black;
+}
+.offer {
+  padding: 10px 0;
+}
+.offer .wrapper {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.offer .wrapper .section-title {
+  text-align: center;
+}
+.offer .wrapper .section-title .sub-title {
+  font-size: 12px;
+}
+.offer .wrapper .section-title .title {
+  font-size: 28px;
+  font-weight: bold;
+}
+.offer .wrapper .content {
+  overflow: hidden;
+}
+.offer .wrapper .content .card {
+  width: 220px;
+  height: 200px;
+  text-align: center;
+  float: left;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+footer {
+  padding: 50px;
+  background-color: black;
+  box-sizing: border-box;
+  text-align: center;
+}
+footer * {
+  color: white;
+}
+footer .concate {
+  width: 1000px;
+  overflow: hidden;
+  background-color: rgba(62, 196, 149, 0);
+  margin: 30px;
+  text-align: center;
+}
+footer .concate .wrap {
+  width: 1000px;
+  margin: o auto;
+  overflow: hidden;
+}
+footer .concate .wrap .logo {
+  float: left;
+  background-color: black;
+}
+footer .concate .wrap .icons {
+  float: right;
+}
+footer .concate .wrap .icons i {
+  color: white;
+  background-color: transparent;
+  border-color: rgba(249, 247, 243, 0.968);
+  border-radius: 50%;
+  width: 50px;
+  border: 3px solid rgba(199, 198, 192, 0.647);
+  line-height: 50px;
+  text-align: center;
+}
+footer .nav {
+  overflow: hidden;
+  width: 1000px;
+  float: left;
+}
+footer .nav .left {
+  text-align: center;
+  overflow: hidden;
+  float: left;
+}
+footer .nav .left .card {
+  float: left;
+  overflow: hidden;
+  margin-right: 50px;
+}
+footer .nav .left .card h5 {
+  font-weight: bold;
+  line-height: 3em;
+}
+footer .nav .left .card ul.submenu {
+  float: left;
+  line-height: 2em;
+}
+footer .nav .left .card .kong {
+  background-color: darkorchid;
+  float: right;
+  width: 200px;
+  margin-left: 200px;
+  margin-top: 10px;
+  height: 200px;
+}
+footer .copyright {
+  width: 1000px;
+  overflow: hidden;
+}
+footer .copyright .word1 {
+  float: left;
+}
+footer .copyright .word2 {
+  float: right;
+}
+.header {
+  background-color: rgba(17, 73, 35, 0.405);
+  height: 50px;
+  overflow: hidden;
+  color: white ;
+}
+.header .left {
+  float: left;
+  text-align: center;
+}
+.header .left .card {
+  margin: 20px;
+}
+.header .left .card i {
+  margin-left: 30px;
+}
+.header .right {
+  float: right;
+  margin-right: 200px;
+}
+.header .right i {
+  margin: 20px;
+}
+.header2 {
+  overflow: hidden;
+  margin-left: 300px;
+  height: 150px;
+}
+.header2 .left {
+  float: left;
+  height: 150px;
+  text-align: center;
+  margin-right: 50px;
+}
+.header2 .left img {
+  width: 90%;
+  color: black;
+  margin-top: 30px;
+}
+.header2 .right {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.header2 .right .btn {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 5px 0;
+  position: relative;
+}
+.header2 .right .btn:first-child {
+  border-bottom: 1px solid blue;
+}
+.header2 .right .btn:hover {
+  border-bottom: 1px solid blue;
+}
+.header2 .right .btn3 {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 5px 0;
+  position: relative;
+}
+.header2 .right .btn3 .subnav {
+  color: white;
+  position: absolute;
+  margin-top: 10px;
+  line-height: 2em;
+  background-color: #050005;
+  display: none;
+}
+.header2 .right .btn3:hover {
+  border-bottom: 1px solid blue;
+}
+.header2 .right .btn3:hover .subnav {
+  display: block;
+}
+.header2 .right .btn2 {
+  border: 1px solid rgba(58, 87, 234, 0.916);
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 5px;
+}
+.header2 .right .btn2 p {
+  padding: 15px;
+}
+.servive {
+  background-color: aquamarine;
+  padding: 50px 0;
+  background-image: url('imgs/services-bg.jpg');
+}
+.servive .wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+.servive .wrapper .header3 {
+  overflow: hidden;
+}
+.servive .wrapper .header3 .title {
+  float: left;
+}
+.servive .wrapper .header3 .title .sub {
+  font-size: 14px;
+  color: aqua;
+}
+.servive .wrapper .header3 .title h3 {
+  font-size: 28px;
+  color: white;
+  font-weight: bold;
+}
+.servive .wrapper .header3 .btn {
+  float: right;
+  text-transform: uppercase;
+  border: 1px solid aqua;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 10px;
+}
+.servive .wrapper .list {
+  overflow: hidden;
+}
+.servive .wrapper .list .card {
+  width: 410px;
+  background-color: white;
+  float: left;
+  margin: 15px;
+  /* broder:1px solid black */
+  border-radius: 15px;
+  /* 圆角 */
+  padding: 30px;
+}
+.servive .wrapper .list .card .icon {
+  float: left;
+  width: 60px;
+  margin-right: 20px;
+}
+.servive .wrapper .list .card .info {
+  width: 330px;
+  float: left;
+}
+.news {
+  padding: 50px;
+}
+.news .wrapper {
+  width: 1000px;
+  /* background-color: bisque; */
+  margin: 0 auto;
+}
+.news .wrapper header {
+  overflow: hidden;
+  padding: 0 15px;
+}
+.news .wrapper header .title {
+  float: left;
+}
+.news .wrapper header .title h3 {
+  font-size: 28px;
+  font-weight: bold;
+}
+.news .wrapper header button {
+  float: right;
+  text-transform: uppercase;
+  border-color: aqua;
+  cursor: pointer;
+}
+.news .wrapper ul.list {
+  overflow: hidden;
+}
+.news .wrapper ul.list li {
+  width: 33.33%;
+  float: left;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.news .wrapper ul.list li .card {
+  padding: 15px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.147);
+  border-radius: 3px;
+}
+.news .wrapper ul.list li .card:hover {
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.47);
+}
+.news .wrapper ul.list li .card:hover a {
+  text-decoration: underline;
+}
+.news .wrapper ul.list li .card a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #282828;
+  font-size: 16px;
+}
+.news .wrapper ul.list li .card p {
+  color: rgba(135, 146, 119, 0.795);
+  margin: 10px 0;
+  font-size: 14px;
+}
+.news .wrapper ul.list li .card .author {
+  line-height: 30px;
+  font-size: 12px;
+  color: #d6b996;
+}
+.news .wrapper ul.list li .card .author .avatar {
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.news .wrapper ul.list li .card .author .name {
+  vertical-align: middle;
+}
+.news .wrapper ul.list li .card .author .time {
+  vertical-align: middle;
+}
+/*# sourceMappingURL=./01-小试牛刀.css.map */

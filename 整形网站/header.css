@@ -1,0 +1,24 @@
+.header {
+  background-color: rgba(17, 73, 35, 0.405);
+  height: 50px;
+  overflow: hidden;
+  color: white ;
+}
+.header .left {
+  float: left;
+  text-align: center;
+}
+.header .left .card {
+  margin: 20px;
+}
+.header .left .card i {
+  margin-left: 30px;
+}
+.header .right {
+  float: right;
+  margin-right: 200px;
+}
+.header .right i {
+  margin: 20px;
+}
+/*# sourceMappingURL=./header.css.map */
