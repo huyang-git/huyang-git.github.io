@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>放大镜-多图</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.1.1/css/all.css" />
     <style>
         .fangda {
             width: 1510px;
-            height: 1000px;
+            height: 300px;
             position: relative;
         }
 
@@ -63,9 +63,9 @@
         }
 
         .fangda .zoom {
-            width: 600px;
-            height: 600px;
-            margin-left: 150px;
+            width: 300px;
+            height: 300px;
+            margin-left: 300px;
             position: relative;
             overflow: hidden;
         }
@@ -140,8 +140,6 @@
         var arrowle = document.getElementById("left");
         var arrowri = document.getElementById("right");
 
-       
-
         var zoomWidth = zoomEl.offsetWidth;
         var zoomHeight = zoomEl.offsetHeight;//放大图的宽高
 
@@ -179,7 +177,6 @@
             dots[i].onclick = function () {
                 console.log(this.title);
                 var currents = Number(this.title);
-               
                 current = currents;//里面的currents来改变外面的current!!!    
                 showIt(currents);
             }

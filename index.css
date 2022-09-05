@@ -1,0 +1,262 @@
+.stage {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.vita {
+    position: fixed;
+    background-image: url("./imgs/简历背景.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+}
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+    line-height: 2em;
+    font-weight: 700;
+    color: rgb(44, 228, 44);
+}
+
+span {
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    line-height: 2em;
+    color: rgb(217, 204, 22);
+}
+
+.porject {
+    width: 1200px;
+    margin-left: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+p {
+    position: absolute;
+    text-align: center;
+    top: 100%;
+    left: 40%;
+    /* width: 50px; */
+    height: 20px;
+}
+
+h2 {
+    font-size: 32px;
+    width: 8em;
+    text-align: center;
+    margin: 30px auto;
+    line-height: 2em;
+    font-weight: 700;
+    color: rgb(225, 17, 14);
+}
+
+h3 {
+    width: 100%;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 2em;
+    text-align: center;
+}
+
+.html {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.xiaoyouxi {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.js {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.json {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.css3 {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.boot {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.zhenxing {
+    background-image: url(./imgs/整形截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fuzhuang {
+    background-image: url(./imgs/服装截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.zhengxingboot {
+    background-image: url(./imgs/整形截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fuzhuangboot {
+    background-image: url(./imgs/服装截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ertong {
+    background-image: url(./imgs/儿童截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fangdajing {
+    background-image: url(./imgs/放大镜截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.shoufengqin {
+    background-image: url(./imgs/手风琴截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.yangguang {
+    background-image: url(./imgs/打阳光菇截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lunbo {
+    background-image: url(./imgs/轮播.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.baikuai {
+    background-image: url(./imgs/别踩白块儿截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.xiuxian {
+    background-image: url(./imgs/修仙截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.youling {
+    background-image: url(./imgs/幽灵按钮截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.kaiguan {
+    background-image: url(./imgs/动态开关截图.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.diqu {
+    background-image: url(./imgs/地区搜索.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bzhan {
+    background-image: url(./imgs/bzhan.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.yinyue {
+    background-image: url(./imgs/音乐.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.xuanxiang {
+    background-image: url(./imgs/选项.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.browser {
+    background-image: url(./imgs/360浏览器.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+a {
+    width: 320px;
+    height: 270px;
+    position: relative;
+}

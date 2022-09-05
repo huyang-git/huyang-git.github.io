@@ -1,0 +1,445 @@
+@keyframes op {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes run1 {
+  from {
+    top: -130px;
+  }
+  to {
+    top: -65px;
+  }
+}
+.stage {
+  width: 100%;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  animation: all 1s;
+}
+.stage .dots {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stage .dots li {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(128, 128, 128, 0.626);
+  margin-bottom: 10px;
+  border-radius: 50%;
+  position: relative;
+  top: 40px;
+  left: 1466px;
+  margin-left: 30px;
+}
+.stage .first {
+  position: relative;
+  background-image: url(主图.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+}
+.stage .first h1 {
+  font-size: 60px;
+  font-weight: 500;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+.stage .first h2 {
+  clear: both;
+  display: block;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+.stage .first button {
+  padding: 20px;
+  padding-right: 35px;
+  padding-left: 35px;
+  border-radius: 50px;
+  border: 0;
+  margin-left: 30px;
+  font-size: 24px;
+}
+.stage .first .btn1 {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.314);
+  color: white;
+}
+.stage .first .btn2 {
+  background-color: white;
+  position: relative;
+}
+.stage .first .btn2 p {
+  position: absolute;
+  font-size: 14px;
+  top: -8px;
+  left: 153px;
+  width: 36px;
+  border-radius: 10px 0 10px 0;
+  text-align: center;
+  height: 16px;
+  background-color: red;
+  color: white;
+}
+@keyframes weixing {
+  from {
+    animation: rotate(0deg);
+  }
+  50% {
+    animation: rotate(5deg);
+  }
+  100% {
+    animation: rotate(0deg);
+  }
+}
+.stage .first .weixing {
+  position: absolute;
+  top: 41%;
+  left: 65%;
+  animation: rotatez(333deg);
+  width: 111px;
+  animation-name: weixing;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes xiaoxingqiu {
+  from {
+    top: 7%;
+  }
+  50% {
+    top: 9%;
+  }
+  to {
+    top: 7%;
+  }
+}
+.stage .first .xiaoxingqiu {
+  position: absolute;
+  top: 7%;
+  left: 21%;
+  width: 202px;
+  height: 202px;
+  animation-name: xiaoxingqiu;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes xingqiu {
+  from {
+    top: 56%;
+  }
+  50% {
+    top: 60%;
+  }
+  to {
+    top: 56%;
+  }
+}
+.stage .first .xingqiu {
+  position: absolute;
+  top: 56%;
+  left: 72%;
+  width: 342px;
+  height: 342px;
+  animation-name: xingqiu;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.stage .first .diannao {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.stage .second {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+.stage .second .wrap {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.stage .second .wrap .text {
+  position: absolute;
+  z-index: 5;
+  top: 100px;
+  left: 200px;
+  width: 380px;
+  animation-name: op;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.stage .second .wrap .text p {
+  position: absolute;
+  font-size: 60px;
+  font-weight: 500;
+}
+.stage .second .wrap .text h3 {
+  position: absolute;
+  top: 160px;
+  font-size: 38px;
+  font-weight: 500;
+}
+.stage .second .wrap .text h4 {
+  position: absolute;
+  top: 230px;
+  font-size: 19px;
+  font-weight: 300;
+}
+.stage .second .wrap .text hr {
+  position: absolute;
+  top: 130px;
+  width: 25px;
+}
+.stage .second .wrap .text .tiyan {
+  background-image: url(立即体验.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 333px;
+  width: 200px;
+  height: 50px;
+}
+.stage .second .wrap .text .tiyan:hover {
+  cursor: pointer;
+}
+.stage .second .wrap .vid {
+  position: absolute;
+  top: -62px;
+  z-index: 0;
+  animation-name: run1;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.stage .third {
+  position: absolute;
+  top: 200vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+.stage .third .wrap {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.stage .third .wrap .text {
+  position: absolute;
+  z-index: 5;
+  top: 100px;
+  left: 200px;
+  width: 380px;
+  animation-name: op;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.stage .third .wrap .text p {
+  position: absolute;
+  font-size: 60px;
+  font-weight: 500;
+}
+.stage .third .wrap .text h3 {
+  position: absolute;
+  top: 160px;
+  font-size: 38px;
+  font-weight: 500;
+}
+.stage .third .wrap .text h4 {
+  position: absolute;
+  top: 230px;
+  font-size: 19px;
+  font-weight: 300;
+}
+.stage .third .wrap .text hr {
+  position: absolute;
+  top: 130px;
+  width: 25px;
+}
+.stage .third .wrap .text .tiyan {
+  background-image: url(立即体验.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 333px;
+  width: 200px;
+  height: 50px;
+}
+.stage .third .wrap .text .tiyan:hover {
+  cursor: pointer;
+}
+.stage .third .wrap .vid {
+  position: absolute;
+  top: -62px;
+  z-index: 0;
+  animation-name: run1;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.stage .fourth {
+  position: absolute;
+  top: 300vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+.stage .fourth .wrap {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.stage .fourth .wrap .text {
+  position: absolute;
+  z-index: 5;
+  top: 100px;
+  left: 200px;
+  width: 380px;
+  animation-name: op;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.stage .fourth .wrap .text p {
+  position: absolute;
+  font-size: 60px;
+  font-weight: 500;
+}
+.stage .fourth .wrap .text h3 {
+  position: absolute;
+  top: 160px;
+  font-size: 38px;
+  font-weight: 500;
+}
+.stage .fourth .wrap .text h4 {
+  position: absolute;
+  top: 230px;
+  font-size: 19px;
+  font-weight: 300;
+}
+.stage .fourth .wrap .text hr {
+  position: absolute;
+  top: 130px;
+  width: 25px;
+}
+.stage .fourth .wrap .text .tiyan {
+  background-image: url(立即体验.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 333px;
+  width: 200px;
+  height: 50px;
+}
+.stage .fourth .wrap .text .tiyan:hover {
+  cursor: pointer;
+}
+.stage .fourth .wrap .vid {
+  position: absolute;
+  top: -62px;
+  z-index: 0;
+  animation-name: run1;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.stage .fifth {
+  position: absolute;
+  top: 400vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+.stage .fifth .wrap {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.stage .fifth .wrap .text {
+  position: absolute;
+  z-index: 5;
+  top: 100px;
+  left: 200px;
+  width: 380px;
+  animation-name: op;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.stage .fifth .wrap .text p {
+  position: absolute;
+  font-size: 60px;
+  font-weight: 500;
+}
+.stage .fifth .wrap .text h3 {
+  position: absolute;
+  top: 160px;
+  font-size: 38px;
+  font-weight: 500;
+}
+.stage .fifth .wrap .text h4 {
+  position: absolute;
+  top: 230px;
+  font-size: 19px;
+  font-weight: 300;
+}
+.stage .fifth .wrap .text hr {
+  position: absolute;
+  top: 130px;
+  width: 25px;
+}
+.stage .fifth .wrap .text .tiyan {
+  background-image: url(立即体验.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 333px;
+  width: 200px;
+  height: 50px;
+}
+.stage .fifth .wrap .text .tiyan:hover {
+  cursor: pointer;
+}
+.stage .fifth .wrap .vid {
+  position: absolute;
+  top: -62px;
+  z-index: 0;
+  animation-name: run1;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+/*# sourceMappingURL=./360.css.map */

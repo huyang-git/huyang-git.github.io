@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360浏览器</title>
+    <link rel="stylesheet" href="./360.css">
+    <link rel="stylesheet" href="./my-minireset.css">
+</head>
+
+<body>
+    <div class="stage">
+        <ul class="dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <section class="first">
+            <h1>畅快浏览 极致体验</h1>
+            <h2>全新Chrome内核浏览器,性能更强,速度更快</h2>
+            <button class="btn1">32位版本</button>
+            <button class="btn2"> <img class="diannao" src="./电脑.png" alt="">64位版本<p>NEW</p></button>
+            <img class="weixing" src="./卫星.png" alt="">
+            <img class="xiaoxingqiu" src="./小星球.png" alt="">
+            <img class="xingqiu" src="./星球.png" alt="">
+        </section>
+
+        <section class="second">
+            <div class="wrap">
+                <div class="text">
+                    <p>极速</p>
+                    <hr />
+                    <h3>全新Chromium内核</h3>
+                    <h4>性能强劲,快如闪电。</h4>
+                    <div class="tiyan"></div>
+                </div>
+                <video class="vid" src="https://s2.ssl.qhres2.com/static/dfeefadde568eab0.mp4" autoplay loop
+                    muted></video>
+            </div>
+        </section>
+
+        <section class="third">
+            <div class="wrap">
+                <div class="text">
+                    <p>极酷</p>
+                    <hr />
+                    <h3>暗夜炫黑模式</h3>
+                    <h4>定义酷,定义你.</h4>
+                    <div class="tiyan"></div>
+                </div>
+                <video class="vid" src="https://s3.ssl.qhres2.com/static/9bebcedf292f327e.mp4" autoplay loop
+                    muted></video>
+            </div>
+        </section>
+
+        <section class="fourth">
+            <div class="wrap">
+                <div class="text">
+                    <p>极安全</p>
+                    <hr />
+                    <h3>DNS加密防劫持</h3>
+                    <h4>安全升级,肆意无忌.</h4>
+                    <div class="tiyan"></div>
+                </div>
+                <video class="vid" src="https://s1.ssl.qhres2.com/static/fdf92889c539303c.mp4" autoplay loop
+                    muted></video>
+            </div>
+        </section>
+
+
+        <section class="fifth">
+            <div class="wrap">
+                <div class="text">
+                    <p>极视界</p>
+                    <hr />
+                    <h3>4k高清视频播放</h3>
+                    <h4>还原真实之美,尽显万物本色.</h4>
+                    <div class="tiyan"></div>
+                </div>
+                <video class="vid" src="https://s1.ssl.qhres2.com/static/7e7f0ec4a0cc7a66.mp4" autoplay loop
+                    muted></video>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        var stageEl = document.querySelector(".stage")
+        var sectionEl = document.querySelectorAll("section");
+        var dotsEl = document.querySelectorAll("li");
+        var vidEl = document.querySelectorAll('video');
+        var current = 0;
+
+        function showImg(index) {
+            current = index;
+            if (current < 1) {
+                current = 0;
+            }
+            if (current > 4) {
+                current = 4;
+            }
+            for (let z = 0; z < sectionEl.length; z++) {
+
+                if (z == current) {
+                    sectionEl[z].style.display = "block";
+                    sectionEl[index].style.top = 0;
+                }
+                else {
+                    sectionEl[z].style.display = "none";
+                }
+
+            }
+
+            for (var i = 0; i < dotsEl.length; i++) {
+                if (i == current) {
+                    dotsEl[i].style.backgroundColor = "white"
+                }
+                else {
+                    dotsEl[i].style.backgroundColor = "rgba(128, 128, 128, 0.626)"
+                }
+
+            }
+        }
+        showImg(0);
+
+        Array.prototype.slice.call(dotsEl).forEach(function (dot, i) {
+            console.log(dot, i)
+            dot.onmouseenter = function () {
+                showImg(i);
+            };
+        });
+
+        var flag = true;
+
+        window.addEventListener("wheel", function (e) {
+            var evt = e || window.event;
+            evt.preventDefault();
+
+            if (flag) {
+                if (evt.deltaY > 0) {
+                    showImg(current + 1);
+                    flag = false;
+                    id = setTimeout(function () {
+                        flag = true;
+                    }, 2000)
+
+                } else {
+                    showImg(current - 1);
+                    flag = false;
+                    id = setTimeout(function () {
+                        flag = true;
+                    }, 2000)
+                }
+            }
+        }, { passive: false });
+    </script>
+</body>
+
+</html>
