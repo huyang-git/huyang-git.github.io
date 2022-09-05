@@ -59,6 +59,7 @@
             width: 150px;
             height: 30px;
         }
+
         #text2 {
             width: 250px;
             height: 30px;
@@ -186,9 +187,11 @@
         }
 
         btn.onclick = function () {
-
             $(".city").html("");
             $(".district").html("");
+            ulEl[0].style.visibility = "hidden";
+            ulEl[1].style.visibility = "hidden";
+            ulEl[2].style.visibility = "hidden";
             var str = "";
             var aa = inp.value.slice(0, 2);
             var bb = inp.value.slice(0, 4);
@@ -236,6 +239,11 @@
         }
 
         btn2.onclick = function () {
+            $(".city").html("");
+            $(".district").html("");
+            ulEl[0].style.visibility = "hidden";
+            ulEl[1].style.visibility = "hidden";
+            ulEl[2].style.visibility = "hidden";
             var str = "";
             var str2 = "";
             var str3 = "";
@@ -246,7 +254,9 @@
                     str = el.slice(0, 2);
                     ulEl[0].style.visibility = "visible";
                     $(".province li").eq(z).addClass("active").siblings().removeClass("active");
-                    alert("该地区的区号为:" + str);
+                    setTimeout(function () {
+                        alert("该地区的区号为:" + str);
+                    }, 1000);
                 }
                 z++;
             })
@@ -264,7 +274,9 @@
                     });
                     ulEl[0].style.visibility = "visible";
                     ulEl[1].style.visibility = "visible";
-                    alert("该地区的区号为:" + str);
+                    setTimeout(function () {
+                        alert("该地区的区号为:" + str);
+                    }, 1000);
                 }
 
             })
@@ -302,7 +314,10 @@
                     ulEl[0].style.visibility = "visible";
                     ulEl[1].style.visibility = "visible";
                     ulEl[2].style.visibility = "visible";
-                    alert("该地区的区号为:" + str);
+                    setTimeout(function () {
+                        alert("该地区的区号为:" + str);
+                    }, 1000);
+
                 }
             })
             pro.forEach(function (el) {

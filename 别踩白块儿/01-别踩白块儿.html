@@ -264,10 +264,12 @@
                     overEl.style.display = "block";
                    
                     overmark.innerText = z;
-                    h = Number(Cookies.get("max"));
+                    if (Cookies.get("baimax")) {
+                        h = Number(Cookies.get("baimax"));
+                    }
                     if (h < z) {
                         h = z;
-                        Cookies.set("max", h, { expires: 7 });
+                        Cookies.set("baimax", h, { expires: 7 });
                         maxmark.innerText = h;
                     }else{
                         maxmark.innerText = h;
