@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./my-minireset.css">
+    <style>
+        .stage {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            background-color: rgb(194, 194, 194);
+        }
+
+        ul {
+            width: 30%;
+            margin-left: 20px;
+            visibility: hidden;
+        }
+/* 
+        .city {
+            position: fixed;
+            top: 90px;
+            left: 30%;
+        }
+
+        .district {
+            position: fixed;
+            top: 90px;
+            left: 60%;
+        } */
+
+        li {
+            font-size: 18px;
+            line-height: 2em;
+            width: 350px;
+            height: 2em;
+        }
+
+        span {
+            opacity: 0;
+        }
+
+        .active {
+            color: rgb(22, 9, 210);
+            background-color: rgb(175, 176, 229);
+        }
+
+        button {
+            height: 50px;
+            width: 30%;
+        }
+
+        .input {
+            display: block;
+            width: 100%;
+            height: 40px;
+        }
+
+        input {
+            height: 36px;
+            margin-left: 10px;
+        }
+
+        #text {
+            width: 150px;
+            height: 30px;
+        }
+    </style>
+    <title>地区搜索</title>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="input">
+            <input type="text" placeholder="请输入想搜索的区号" required="required" id="text">
+            <input type="button" value="搜索">
+        </div>
+        <button>请选择省份</button>
+        <button>所选省份下辖城市</button>
+        <button>所选城市下辖地区</button>
+        
+        <ul class="province"> </ul>
+        <ul class="city"></ul>
+        <ul class="district"></ul>
+    </div>
+
+    <script src="./prov-county.json"></script>
+    <script>
+        var pliEl = document.querySelectorAll(".province li");
+        var pro = [];
+        var cit = [];
+        var dis = [];
+        var deg = /\d{2}/g
+        var a = 0;
+        var b = 0;
+        var c = 0;
+        var d = 0;
+        var z = 0;
+
+        var btn = document.querySelector("input[value = 搜索]");
+        var inp = document.querySelector("input[type = text]");
+
+        $("button:first").click(function () {
+            $("ul:first").css("visibility", "visible")
+        })
+
+        function getAndRender() {
+            $.get("./prov-county.json", function (res) {
+
+                res.forEach(function (el) {
+                    var n = el.match(deg)
+                    var obj = {};
+                    if (n.length == 1) {
+                        obj = el.slice(0, el.length);
+                        pro.push(obj);
+                    }
+                    else if (n.length == 2) {
+                        obj = el.slice(0, el.length);
+                        cit.push(obj);
+                    }
+                    else if (n.length == 3) {
+                        obj = el.slice(0, el.length);
+                        dis.push(obj);
+                    }
+                });
+                // console.log(pro);
+                $(".province").html("");
+                pro.forEach(function (po) {
+                    // console.log(po);
+                    node = "<li>" + po.slice(3, po.length) + "<span>" + po.slice(0, 2) + "</span>" + "</li>";
+                    $(".province").append(node);
+
+                });
+
+                $(".province li").click(function () {
+                    var aaa = $(this).text().slice(0, $(this).text().length - $(this).find("span").text().length);
+                    var a = $(this).find("span").text();
+                    $("ul").eq(1).css("visibility", "visible")
+                    $(this).addClass("active").siblings().removeClass("active");
+                    $(".city").html("");
+                    $(".district").html("");
+                    cit.forEach(function (ci) {
+                        if (ci.slice(0, 2) == a) {
+                            $(".city").append("<li>" + ci.slice(5, ci.length) + "<span>" + ci.slice(0, 4) + "</span>" + "</li>");
+                        }
+                    });
+
+                    $(".city li").click(function () {
+                        $("ul").eq(2).css("visibility", "visible")
+                        $(this).addClass("active").siblings().removeClass("active");
+                        var bbb = $(this).text().slice(0, $(this).text().length - $(this).find("span").text().length);
+                        var b = $(this).find("span").text();
+                        $(".district").html("");
+                        dis.forEach(function (di) {
+                            if (di.slice(0, 4) == b) {
+                                $(".district").append("<li>" + di.slice(7, di.length) + "<span>" + di.slice(0, 6) + "</span>" + "</li>");
+                            }
+                        });
+
+                        $(".district li").click(function () {
+                            $("ul").eq(2).css("visibility", "visible");
+                            $(this).addClass("active").siblings().removeClass("active");
+                            var ccc = $(this).text().slice(0, $(this).text().length - $(this).find("span").text().length);
+                            var that = $(this).find("span").text();
+                            setTimeout(function () {
+                                alert("您选择的地区为:" + aaa + " " + bbb + " " + ccc + " " + "\n" + "该地区的区号为:" + that);
+                            }, 100);
+                        });
+                    });
+                });
+            });
+        }
+        getAndRender();
+
+        function check(el) {
+            return el.slice(0,2) == inp.value;
+        }
+        function check2(el) {
+            return el.slice(0,4) == inp.value;
+        }
+        function check3(el) {
+            return el.slice(0,6) == inp.value;
+        }
+        
+        btn.onclick = function () {
+            var str = "";
+            var aa = inp.value.slice(0, 2);
+            var bb = inp.value.slice(0, 4);
+            var cc = inp.value.slice(0, 6);
+            if (inp.value.length >= 2 && inp.value.length != 3) {
+                if (inp.value.length >= 4 && inp.value.length != 5) {
+                    if (inp.value.length == 6) {
+                        dis.forEach(function (el) {
+                            if (el.slice(0, 6) == cc) {
+                                str += el.slice(7, el.length) + " ";
+                            }
+                        })
+                    }
+
+                    cit.forEach(function (el) {
+                        if (el.slice(0, 4) == bb) {
+                            str += el.slice(5, el.length) + " ";
+                        }
+                    })
+                }
+
+                pro.forEach(function (el) {
+                    if (el.slice(0, 2) == aa) {
+                        str += el.slice(3, el.length) + " ";
+                        if (pro.some(check) || cit.some(check2) || dis.some(check3)) {
+                            alert("该区号对应的地区为:" + str.split(" ").reverse());
+                        }
+                    }
+                })
+            }
+            if (!(pro.some(check) || cit.some(check2) || dis.some(check3))) {
+                alert("请输入正确的区号!");
+            }
+
+            inp.value = "";
+        }
+    </script>
+</body>
+
+</html>

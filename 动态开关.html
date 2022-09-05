@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .toggle-wrapper1 {
+            background: #de8787;
+        }
+
+        .toggle1 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .toggle-wrapper1 {
+            flex: 1 1 calc(100% / 3);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        input[type="checkbox" i] {
+            background-color: initial;
+            cursor: default;
+            appearance: auto;
+            box-sizing: border-box;
+            margin: 3px 3px 3px 4px;
+            padding: initial;
+            border: initial;
+        }
+
+
+        .toggle-wrapper1 .toggle {
+            transform: translate(-40px, 40px);
+        }
+
+        input {
+            height: 40px;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 40px;
+        }
+
+        .basketball-hoop label {
+            background: #fdb827;
+        }
+
+        label.toggle-item1 {
+            width: 7em;
+            background: #2e394d;
+            height: 3em;
+            display: inline-block;
+            border-radius: 50px;
+            margin: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+            transform-origin: 20% center;
+            cursor: pointer;
+        }
+
+
+        @keyframes color1 {
+            from {}
+
+            99% {
+                background-color: #fdb827;
+            }
+
+            to {
+                background-color: #2e394d;
+            }
+        }
+
+        input:checked+label .ball {
+            animation-name: active1;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+
+        }
+
+        input:checked+label {
+            animation-name: color1;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes active1 {
+            0% {
+                top: 4px;
+                left: 4px;
+            }
+
+            15% {
+                top: -45px;
+                left: 30px;
+            }
+
+            25% {
+                top: -65px;
+                left: 45px;
+            }
+
+            50% {
+                top: -100px;
+                left: 150px;
+            }
+
+            75% {
+                top: 4px;
+                left: 150px;
+            }
+
+            100% {
+                top: 4px;
+                left: 70px;
+            }
+        }
+
+        .basketball-hoop label {
+            background: #fdb827;
+        }
+
+        .basketball-hoop .ball {
+            border-radius: 50%;
+            width: 2.5em;
+            height: 2.5em;
+            position: absolute;
+            background: #FF9800;
+            border: 2px solid black;
+            transition: 0.4s ease;
+            top: 4px;
+            left: 4px;
+            background-image: radial-gradient(circle at -5px 10px, transparent 15px, black 15px, black 17px, transparent 17px), radial-gradient(circle at 41px 25px, transparent 15px, black 15px, black 17px, transparent 17px), linear-gradient(110deg, transparent 22px, black 22px, black 24px, transparent 24px), linear-gradient(18deg, transparent 22px, black 22px, black 24px, transparent 24px);
+        }
+
+        .basketball-hoop .hoop {
+            top: -50px;
+            right: -84px;
+            width: 50px;
+            background: #f44336;
+            height: 8px;
+            position: absolute;
+        }
+
+        .name {
+            width: 80%;
+            position: absolute;
+            font: 500 14px "Rubik", sans-serif;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+            bottom: 15px;
+            right: 15px;
+            text-align: right;
+        }
+
+        .basketball-hoop .hoop:before {
+            position: absolute;
+            right: -4px;
+            width: 7px;
+            height: 60px;
+            background: #cd2e22;
+            top: -40px;
+        }
+
+        .basketball-hoop .hoop:after {
+            width: 40px;
+            height: 35px;
+            background: repeating-linear-gradient(45deg, transparent, transparent 13px, white 13px, white 15px), repeating-linear-gradient(-45deg, transparent, transparent 13px, white 13px, white 15px);
+            top: 8px;
+            border-radius: 0 0 20% 20%/40% 40% 60% 60%;
+            border: 2px solid #fff;
+            border-width: 0 2px;
+            left: 2px;
+            z-index: 20;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+            display: block;
+        }
+        .toggle-wrapper {
+            background: #decf87;
+        }
+
+        .toggle-wrapper {
+            flex: 1 1 calc(100% / 3);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .toggle-wrapper .toggle {
+            transform: translate(-40px, 40px);
+        }
+
+        input {
+            height: 40px;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 40px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        label.toggle-item {
+            width: 7em;
+            background: #2e394d;
+            height: 3em;
+            display: inline-block;
+            border-radius: 50px;
+            margin: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+            transform-origin: 20% center;
+            cursor: pointer;
+        }
+
+        .beer-pong label:before {
+            background: #f9f9f9;
+            box-shadow: inset 0 -3px 0 0 #c6c5c5;
+            border: none;
+            width: 2.5em;
+            height: 2.5em;
+            top: 0.25em;
+            left: 0.25em;
+        }
+
+        label.toggle-item:before {
+            display: block;
+            transition: all 0.2s ease;
+            width: 2.3em;
+            height: 2.3em;
+            top: 0.25em;
+            left: 0.25em;
+            border-radius: 2em;
+            border: 2px solid #88cf8f;
+            transition: 0.3s ease;
+        }
+
+        .beer-pong .cup {
+            top: -3%;
+            right: -118px;
+            border-top: 90px solid #f44336;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            height: 3px;
+            position: absolute;
+            width: 80px;
+            transform-origin: bottom right;
+            transition: 0.2s cubic-bezier(0.42, 0.5, 0.58, 1);
+        }
+
+        .name {
+            width: 80%;
+            position: absolute;
+            font: 500 14px "Rubik", sans-serif;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+            bottom: 15px;
+            right: 15px;
+            text-align: right;
+        }
+
+        .beer-pong .cup:before {
+            box-shadow: 0 -10px 0 0px rgba(39, 39, 39, 0.1), 0px -20px 0 0px rgba(39, 39, 39, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            background: rgba(39, 39, 39, 0.1);
+            width: 120%;
+            left: -5px;
+            height: 4px;
+            top: -40px;
+        }
+
+        .beer-pong .cup .lid {
+            position: absolute;
+            width: 95px;
+            height: 8px;
+            border-radius: 20px;
+            background: #efefef;
+            bottom: 86px;
+            left: -23px;
+        }
+
+        .beer-pong .cup .lid:after {
+            background: #efefef;
+            width: 48px;
+            height: 5px;
+            left: 50%;
+            margin-left: -24px;
+            top: 94px;
+            border-radius: 0 0 3px 3px;
+        }
+
+        *:before,
+        *:after {
+            content: "";
+            position: absolute;
+        }
+
+        @keyframes run {
+            0% {}
+
+            20% {
+                top: -5.75em;
+                left: -0.75em;
+            }
+
+            45% {
+                transform: rotate(55deg);
+                transform-origin: 239% 450%;
+            }
+
+            60% {
+                transform: rotate(28deg);
+                transform-origin: 239% 450%;
+
+            }
+
+            100% {
+                transform: rotate(45deg);
+                transform-origin: -134% 400%;
+                top: -5.75em;
+                left: -0.75em;
+            }
+        }
+
+        @keyframes fall {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(90deg);
+                transform-origin: bottom right;
+            }
+        }
+
+        input:checked+div .toggle-item::before {
+            animation-name: run;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        input:checked+div .cup {
+            animation-name: fall;
+            animation-duration: 1.65s;
+            animation-delay: 1.35s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="toggle-wrapper1">
+        <div class="toggle1 basketball-hoop">
+            <input id="hoop" type="checkbox">
+            <label class="toggle-item1" for="hoop">
+                <div class="ball__wrapper">
+                    <div class="ball"></div>
+                </div>
+                <div class="hoop"></div>
+            </label>
+        </div>
+        <div class="name">篮框开关</div>
+    </div>
+
+    <div class="toggle-wrapper">
+        <div class="toggle beer-pong">
+            <input id="beer-pong" type="checkbox">
+            <div><label class="toggle-item" for="beer-pong"></label>
+                <div class="cup">
+                    <div class="lid"></div>
+                </div>
+            </div>
+        </div>
+        <div class="name">纸杯开关</div>
+    </div>
+</body>
+
+</html>

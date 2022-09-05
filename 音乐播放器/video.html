@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./my-minireset.css">
+    <title>Document</title>
+    <style>
+        .stage {
+            background-image: url("./E-1225553-46029B8B.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        h1 {
+            width: 10em;
+            text-align: center;
+            margin: 0 auto;
+            padding-top: 20px;
+            font-size: 28px;
+            height: 2em;
+        }
+
+        .bottom {
+            display: flex;
+        }
+
+        @keyframes run {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .tupian {
+            background-image: url("./背景.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 365px;
+            margin-left: 200px;
+            border-radius: 50%;
+            height: 365px;
+            animation-play-state: paused;
+            animation-name: run;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: initial;
+        }
+
+        ul {
+            margin-left: 50px;
+        }
+
+        button {
+            position: absolute;
+            top: 173px;
+            left: 1222px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: transparent;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+
+        .prov {
+            top: 100px;
+        }
+
+        li {
+            line-height: 2em;
+        }
+
+        .next {
+            top: 250px;
+        }
+
+        audio {
+            position: absolute;
+            top: 173px;
+            left: 1222px;
+            width: 300px;
+            height: 50px;
+            opacity: 0;
+        }
+
+        .active {
+            color: red;
+            font-size: 32px;
+            line-height: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <h1>音乐名字</h1>
+        <div class="bottom">
+            <div class="tupian"></div>
+            <ul class="lyrics ">
+                <li ></li>
+                <li></li>
+                <li></li>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+        </div>
+        <button class="play">播放音乐</button>
+        <button class="prov">上一首</button>
+        <button class="next">下一首</button>
+        <audio
+            src="./青花瓷.mp3"
+            controls  loop></audio>
+    </div>
+
+    <script>
+        var play = document.querySelector(".play");
+        var prov = document.querySelector(".prov");
+        var next = document.querySelector('.next');
+        var audio = document.querySelector("audio");
+        var h1 = document.querySelector("h1");
+        var lyrics = document.querySelector("lyrics");
+        var tupian = document.querySelector('.tupian');
+        var liEl = document.querySelectorAll("li");
+        var i = 0;
+        var z = 0;
+        var flag = false;
+        var p = 0;
+        var h = 0;
+
+        var str = "作者:方文山 原唱:周杰伦 来源:QQ音乐 一盏离愁 孤单伫立在窗口 我在门后 假装你人还没走 旧地如重游 月圆更寂寞 夜半清醒的烛火 不忍苛责我 一壶漂泊 浪迹天涯难入喉 你走之后 酒暖回忆思念瘦 水向东流 时间怎么偷 花就一次成熟 我却错过 谁在用琵琶弹奏 一曲东风破 岁月再墙上剥落 看见小时候 犹记得那年我们都还很年又 而如今琴声幽幽 我的等候你没听过 谁再用琵琶弹奏 一曲东风破 枫叶将故事染色 结局我看透 离笆外的古道我牵著你走过 荒烟漫草的年头 就连分手都很沉默 一盏离愁 孤单伫立在窗口 我在门后 假装你人还没走 旧地如重游 月圆更寂寞 夜半清醒的烛火 不忍苛责我 一壶漂泊 浪迹天涯难入喉 你走之后 酒暖回忆思念瘦 水向东流 时间怎么偷 花就一次成熟 我却错过 谁在用琵琶弹奏 一曲东风破 岁月再墙上剥落 看见小时候 犹记得那年我们都还很年又 而如今琴声幽幽 我的等候你没听过 谁再用琵琶弹奏 一曲东风破 枫叶将故事染色 结局我看透 离笆外的古道我牵著你走过 荒烟漫草的年头 就连分手都很沉默"
+        var str2 = "作者:方文山 原唱:周杰伦 来源:QQ音乐 你的泪光柔弱中带伤， 惨白的月弯弯勾住过往 夜太漫长凝结成了霜, 是谁在阁楼上冰冷地绝望 雨轻轻弹朱红色的窗， 我一生在纸上被风吹乱 梦在远方化成一缕香， 随风飘散你的模样 菊花残满地伤你的笑容已泛黄， 花落人断肠我心事静静淌 北风乱夜未央你的影子剪不断， 徒留我孤单在湖面成双 花已向晚飘落了灿烂， 凋谢的世道上命运不堪 愁莫渡江秋心拆两半， 怕你上不了岸一辈子摇晃 谁的江山马蹄声狂乱， 我一身的戎装呼啸沧桑 天微微亮你轻声地叹， 一夜惆怅如此委婉 菊花残满地伤你的笑容已泛黄， 花落人断肠我心事静静淌 北风乱夜未央， 你的影子剪不断 徒留我孤单在湖面， 成双 菊花残满地伤， 你的笑容已泛黄 花落人断肠， 我心事静静淌 北风乱， 夜未央你的影子剪不断 徒留我孤单在湖, 成双"
+        var lyr2 = [str.split(" ")][0];
+        var lyr3 = [str2.split(" ")][0];
+
+        var src =["./青花瓷.mp3","./东风破.mp3",
+    "./菊花台.mp3"];
+      
+        var sing = ["青花瓷", "东风破", "菊花台"];
+        var lyr1 = ["作者:方文山","原唱:周杰伦","来源:QQ音乐","素胚勾勒出青花笔锋浓转淡", "瓶身描绘的牡丹一如你初妆", "冉冉檀香透过窗心事我了然", "宣纸上走笔至此搁一半", "釉色渲染仕女图韵味被私藏",
+            "而你嫣然的一笑如含苞待放", "你的美一缕飘散", "去到我去不了的地方", "天青色等烟雨", "而我在等你", "炊烟袅袅升起", "隔江千万里", "在瓶底书刻隶仿前朝的飘逸",
+            "就当我为遇见你伏笔", "天青色等烟雨", "而我在等你", "天青色等烟雨", "而我在等你", "月色被打捞起", "晕开了结局", "如传世的青花瓷自顾自美丽", "你眼带笑意", "色白花青的锦鲤跃然于碗底",
+            "临摹宋体落款时却惦记着你", "你隐藏在窑烧里千年的秘密", "极细腻犹如绣花针落地", "帘外芭蕉惹骤雨门环惹铜绿", "而我路过那江南小镇惹了你", "在泼墨山水画里",
+            "你从墨色深处被隐去", "天青色等烟雨", "而我在等你", "炊烟袅袅升起", "隔江千万里", "在瓶底书刻隶仿前朝的飘逸", "就当我为遇见你伏笔", "天青色等烟雨", "而我在等你",
+            "月色被打捞起", "晕开了结局", "如传世的青花瓷自顾自美丽", "你眼带笑意", "天青色等烟雨", "而我在等你", "炊烟袅袅升起", "隔江千万里", "在瓶底书刻隶仿前朝的飘逸",
+            "就当我为遇见你伏笔", "天青色等烟雨", "而我在等你", "月色被打捞起", "晕开了结局", "如传世的青花瓷自顾自美丽", "你眼带笑意"];
+
+        var lyr = [lyr1, lyr2, lyr3]
+        h1.innerText = sing[0];
+
+        prov.onclick = function () {
+
+            p--;
+            if (p == -1) {
+                p = 2;
+            }
+            h1.innerText = sing[p];
+            liEl.forEach(function (el) {
+                el.innerText = lyr[p][i];
+                i++;
+            })
+            i = 0;
+            audio.src = src[p];
+
+        }
+        next.onclick = function () {
+
+            p++;
+            if (p == 3) {
+                p = 0;
+            }
+            h1.innerText = sing[p];
+            liEl.forEach(function (el) {
+                el.innerText = lyr[p][i];
+                i++;
+            })
+            i = 0;
+            audio.src = src[p];
+
+        }
+
+        var t = setInterval(function () {
+            // console.log(audio.paused);
+            if (audio.paused == true) {
+                tupian.style.animationPlayState = "paused"
+                audio.muted = true;
+                flag = false;
+            } else {
+                tupian.style.animationPlayState = "running";
+                audio.muted = false;
+                flag = true;
+                h =audio.duration/lyr[p].length ;
+            }
+        }, 200);
+
+        liEl.forEach(function (el) {
+            el.innerText = lyr[p][i];
+            i++;
+        })
+        i = 0;
+        setInterval(function () {
+            // console.log(audio.currentTime);
+            if (flag) {
+                liEl.forEach(function (liel) {
+                    liel.innerText = lyr[p][i + z];
+                    z++;
+                })
+                z = 0;
+                if (i > lyr[p].length-8) {
+                    i = 0;
+                }
+            }
+            i++;
+        },h);
+console.log(h);
+// lyr[p].length/audio.durtion
+
+
+    </script>
+
+
+</body>
+
+</html>

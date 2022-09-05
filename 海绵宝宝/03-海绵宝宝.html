@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <style>
+        .stage {
+            width: 470px;
+            height: 269px;
+            background-color: lightblue;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-image: url(./eee63cd.webp);
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .rollbar {
+            width: 100%;
+            height: 14px;
+            background-color: black;
+            position: absolute;
+            border-radius: 4px 4px 0 0;
+            top: 0;
+            left: 0;
+        }
+
+        .roll {
+            position: absolute;
+            top: 3px;
+            left: 10px;
+            width: 0px;
+            height: 5px;
+            background-color: rgb(215, 215, 215);
+
+        }
+
+        .time {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            color: rgb(126, 126, 126);
+            display: none;
+        }
+
+        .box {
+            position: absolute;
+            top: 370px;
+            left: 530px;
+            width: 400px;
+            height: 200px;
+        }
+
+        .dm {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 1800px;
+            height: 35px;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.726);
+            word-spacing: 40px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .dm2 {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 2000px;
+            height: 35px;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.705);
+            word-spacing: 40px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .box p {
+            display: none;
+        }
+        
+        p span{
+            margin-right:40px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="rollbar">
+            <div class="roll"></div>
+        </div>
+        <div class="dm"></div>
+        <div class="dm2"></div>
+        <span class="time">23:12</span>
+    </div>
+    <div class="box">
+        <span>海绵宝宝</span>
+        <span>中文配音</span>
+        <span>052</span>
+        <p class="num">
+            <span class="play">
+                <i class="fa fa-youtube-play "></i></i>133.6万</span>
+            <span class="danmu">
+                <i class="fa fa-list-alt"></i>7949</span>
+        </p>
+
+    </div>
+    <script>
+
+        var dm = [
+            "章鱼哥还是没有胜过强风暴雨(doge)",
+            "日本裁判",
+            "日本裁判",
+            "海绵宝宝笑死我了",
+            "黑人小哥",
+            "堡垒之夜",
+            "最喜欢的一集",
+            "最喜欢的一集",
+            "喜欢",
+            "我怎么觉得派大星这个配音我在神奇宝贝里听过",
+            "我看见你了",
+            "但凡章鱼哥早点回去都不至于这样",
+            "这……这我还真有可能“模仿”",
+            "为什么非要执着于台配或者央配呢",
+            "派总依旧稳定输出",
+            "包租公～",
+            "为什么台配的海绵宝宝跟低能儿似的",
+            "井字游戏，其实可以先手必胜的",
+            "我小时候就看的台配",
+            "终于找到了",
+        ];
+
+        var stageEl = document.querySelector(".stage");
+        var timeEl = document.querySelector(".time");
+        var dmEl = document.querySelector(".dm");
+        var dm2El = document.querySelector(".dm2");
+        var rollEl = document.querySelector(".roll")
+        var pEl = document.querySelector(".box p");
+        var str1 = " ";
+        var str2 = " ";
+        var h = 0;
+        var k = 0;
+        var j = 480;
+        var offsetLeft = stageEl.offsetLeft;
+
+        for (let i = 0; i < dm.length; i += 2) {
+            str1 += dm[i] + " ";
+            str2 += dm[i + 1] + " ";
+        }
+        dmEl.innerText = str1;
+        dm2El.innerText = str2;
+        dmEl.style.left = "480px";
+        dm2El.style.left = "480px";
+
+        stageEl.onmouseenter = function () {
+            timeEl.style.display = "block";
+            pEl.style.display = "block";
+            var t = setInterval(function () {
+                dmEl.style.left = j + "px";
+                dm2El.style.left = j + "px";
+                j -= 8;
+                if (j < -1950) {
+                    dmEl.style.left = "480px";
+                    dm2El.style.left = "480px";
+                    j = 480;
+                }
+                stageEl.onmouseleave = function () {
+                    timeEl.style.display = "none";
+                    pEl.style.display = "none";
+                    clearInterval(t);
+                }
+            }, 100);
+        }
+
+        stageEl.style["background-position"] = "0px " + "0px";
+        setInterval(function () {
+            stageEl.onmousemove = function () {
+                var mx = event.pageX - offsetLeft;
+                if (mx > 0) {
+                    stageEl.style.backgroundImage = "url(./486142478_dc4dcb-0001.jpg)";
+                } else {
+                    stageEl.style.backgroundImage = "url(./eee63cd.webp)";
+                }
+                rollEl.style.width = mx + "px";
+                // if (((mx / 2.7) / 10) % 1 == 0) {
+                //     h++;
+                // }
+                // if (Math.trunc(mx / 2.7) > k) {
+                //     k++;
+                // } else if (Math.trunc(mx / 2.7) < k) {
+                //     k--;
+                // }
+                if (mx > 461) {
+                    mx = 461;
+                }
+                k = Math.trunc(mx / 2.7);
+                h = Math.trunc((mx / 2.7) / 10);
+                stageEl.style["background-position"] =
+                    (k * -480) + "px " + (h * -269) + "px";
+                if (k == 100) {
+                    k = 0;
+                }
+                if (h == 10) {
+                    h = 0;
+                }
+                if (mx > 270) {
+                    stageEl.style.backgroundImage = "url(./486142478_dc4dcb-0002.jpg)";
+                    stageEl.style["background-position"] =
+                        ((k) * -480) + "px " + ((h - 10) * -269) + "px";
+                }
+            }
+        }, 30);
+
+
+
+
+    </script>
+</body>
+
+</html>

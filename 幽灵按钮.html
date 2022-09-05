@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .line {
+            width: 70%;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        div {
+            margin: 10px;
+            padding: 10px;
+            background-color: rgba(158, 158, 158, 0.329);
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            display: inline-block;
+            position: relative;
+        }
+
+        div:hover {
+            cursor: pointer;
+        }
+
+        @keyframes grow {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .grow {
+            display: inline-block;
+        }
+
+        .grow:hover {
+            animation-name: grow;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+
+            /* animation-iteration-count: infinite; */
+        }
+
+        @keyframes shrink {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(0.8);
+            }
+        }
+
+        .shrink {
+            display: inline-block;
+        }
+
+        .shrink:hover {
+            animation-name: shrink;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+
+            /* animation-iteration-count: infinite; */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.9);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(0.9);
+            }
+        }
+
+        .pulse {
+            display: inline-block;
+        }
+
+        .pulse:hover {
+            animation-name: pulse;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes pulsegrow {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulsegrow {
+            display: inline-block;
+        }
+
+        .pulsegrow:hover {
+            animation-name: pulsegrow;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes pulseshrink {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.8);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulseshrink {
+            display: inline-block;
+        }
+
+        .pulseshrink:hover {
+            animation-name: pulseshrink;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes push {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.8);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .push {
+            display: inline-block;
+        }
+
+        .push:hover {
+            animation-name: push;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pop {
+            display: inline-block;
+        }
+
+        .pop:hover {
+            animation-name: pop;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+        }
+
+        @keyframes bouncein {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            75% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.2);
+
+            }
+        }
+
+        .bouncein {
+            display: inline-block;
+        }
+
+        .bouncein:hover {
+            animation-name: bouncein;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes bounceout {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.8);
+            }
+
+            75% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0.8);
+
+            }
+        }
+
+        .bounceout {
+            display: inline-block;
+        }
+
+        .bounceout:hover {
+            animation-name: bounceout;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(15deg);
+            }
+        }
+
+        .rotate {
+            display: inline-block;
+        }
+
+        .rotate:hover {
+            animation-name: rotate;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards
+        }
+
+        @keyframes growrotate {
+            0% {
+                transform: rotate(0deg) scale(1);
+
+            }
+
+            100% {
+                transform: rotate(10deg) scale(1.1);
+            }
+        }
+
+        .growrotate {
+            display: inline-block;
+        }
+
+        .growrotate:hover {
+            animation-name: growrotate;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards
+        }
+
+        @keyframes float {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                top: 0px;
+
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                top: -10px;
+            }
+        }
+
+        .float {
+            display: inline-block;
+            position: relative;
+        }
+
+        .float:hover {
+            animation-name: float;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards
+        }
+
+        @keyframes sink {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                top: 0px;
+
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                top: 10px;
+            }
+        }
+
+        .sink {
+            display: inline-block;
+            position: relative;
+        }
+
+        .sink:hover {
+            animation-name: sink;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards
+        }
+
+        @keyframes bob {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                top: -5px;
+            }
+
+            25% {
+                top: -10px;
+            }
+
+            50% {
+                top: -5px;
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                top: -10px;
+            }
+        }
+
+        .bob {
+            display: inline-block;
+            position: relative;
+        }
+
+        .bob:hover {
+            animation-name: bob;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards
+        }
+
+        @keyframes hang {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                top: 5px;
+            }
+
+            25% {
+                top: 10px;
+            }
+
+            50% {
+                top: 5px;
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                top: 10px;
+            }
+        }
+
+        .hang {
+            display: inline-block;
+            position: relative;
+        }
+
+        .hang:hover {
+            animation-name: hang;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards
+        }
+
+        @keyframes skew {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                transform: skew(0);
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                transform: skew(-15deg);
+            }
+        }
+
+        .skew {
+            display: inline-block;
+            position: relative;
+        }
+
+        .skew:hover {
+            animation-name: skew;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes skewfo {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                transform: skew(0);
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                transform: skew(-15deg);
+                transform-origin: bottom;
+            }
+        }
+
+        .skewfoword {
+            display: inline-block;
+            position: relative;
+        }
+
+        .skewfoword:hover {
+            animation-name: skewfo;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes skewba {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                transform: skew(0);
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                transform: skew(15deg);
+                transform-origin: bottom;
+            }
+        }
+
+        .skewbackword {
+            display: inline-block;
+            position: relative;
+        }
+
+        .skewbackword:hover {
+            animation-name: skewba;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes wobblehorizontal {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                left: 5px;
+            }
+
+            25% {
+                left: -3px;
+            }
+
+            50% {
+                left: 5px;
+            }
+
+            75% {
+                left: -3px;
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                left: 0px;
+            }
+        }
+
+        .wobblehorizontal {
+            display: inline-block;
+            position: relative;
+        }
+
+        .wobblehorizontal:hover {
+            animation-name: wobblehorizontal;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes wobblevertical {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                top: 5px;
+            }
+
+            25% {
+                top: -3px;
+            }
+
+            50% {
+                top: 5px;
+            }
+
+            75% {
+                top: -3px;
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                top: 0px;
+            }
+        }
+
+        .wobblevertical {
+            display: inline-block;
+            position: relative;
+        }
+
+        .wobblevertical:hover {
+            animation-name: wobblevertical;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes wobbleTBR {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                top: 5px;
+                left: 5px;
+            }
+
+            25% {
+                top: -3px;
+                left: -3px;
+            }
+
+            50% {
+                top: 5px;
+                left: 5px;
+            }
+
+            75% {
+                top: -3px;
+                left: -3px;
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                top: 0px;
+                left: 0px;
+            }
+        }
+
+        .wobbleTBR {
+            display: inline-block;
+            position: relative;
+        }
+
+        .wobbleTBR:hover {
+            animation-name: wobbleTBR;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes wobbleTTR {
+            0% {
+                /* transform:rotate(0deg) scale(1); */
+                top: -5px;
+                left: 5px;
+            }
+
+            25% {
+                top: 3px;
+                left: -3px;
+            }
+
+            50% {
+                top: -5px;
+                left: 5px;
+            }
+
+            75% {
+                top: 3px;
+                left: -3px;
+            }
+
+            100% {
+                /* transform:rotate(10deg) scale(1.1); */
+                top: 0px;
+                left: 0px;
+            }
+        }
+
+        .wobbleTTR {
+            display: inline-block;
+            position: relative;
+        }
+
+        .wobbleTTR:hover {
+            animation-name: wobbleTTR;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes wobbleTop {
+            0% {
+                transform: skew(0deg);
+                transform-origin: bottom;
+            }
+
+            20% {
+                transform: skew(-10deg);
+                transform-origin: bottom;
+            }
+
+            40% {
+                transform: skew(10deg);
+                transform-origin: bottom;
+            }
+
+            60% {
+                transform: skew(-5deg);
+                transform-origin: bottom;
+            }
+
+            80% {
+                transform: skew(5deg);
+                transform-origin: bottom;
+            }
+
+            100% {
+                transform: skew(0deg);
+                transform-origin: bottom;
+            }
+        }
+
+        .wobbleTop {
+            display: inline-block;
+            position: relative;
+        }
+
+        .wobbleTop:hover {
+            animation-name: wobbleTop;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes wobbleBottom {
+            0% {
+                transform: skew(0deg);
+                transform-origin: top;
+            }
+
+            20% {
+                transform: skew(-10deg);
+                transform-origin: top;
+            }
+
+            40% {
+                transform: skew(10deg);
+                transform-origin: top;
+            }
+
+            60% {
+                transform: skew(-5deg);
+                transform-origin: top;
+            }
+
+            80% {
+                transform: skew(5deg);
+                transform-origin: top;
+            }
+
+            100% {
+                transform: skew(0deg);
+                transform-origin: top;
+            }
+        }
+
+        .wobbleBottom {
+            display: inline-block;
+            position: relative;
+        }
+
+        .wobbleBottom:hover {
+            animation-name: wobbleBottom;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+        @keyframes wobbleskew {
+            0% {
+                transform: skew(0deg);       
+            }
+
+            20% {
+                transform: skew(-10deg);
+            }
+
+            40% {
+                transform: skew(10deg);
+            }
+
+            60% {
+                transform: skew(-5deg);
+            }
+
+            80% {
+                transform: skew(5deg);
+            }
+
+            100% {
+                transform: skew(0deg);
+            }
+        }
+
+        .wobbleskew {
+            display: inline-block;
+            position: relative;
+        }
+
+        .wobbleskew:hover {
+            animation-name: wobbleskew;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+        @keyframes buzz {
+            0% {
+                transform: skew(0deg);    
+                transform-origin: 20% 70%;
+            }
+
+            20% {
+                transform: skew(-8deg);
+                transform-origin: 20% 70%;
+            }
+
+            40% {
+                transform: skew(8deg);
+                transform-origin: 20% 70%;
+
+            }
+
+            60% {
+                transform: skew(-8deg);
+                transform-origin: 20% 70%;
+            }
+
+            80% {
+               
+                transform: skew(8deg);
+                 transform-origin: 20% 70%;
+            }
+
+            100% { 
+                transform: skew(0deg);
+                transform-origin:  20% 70%;
+            }
+        }
+
+        .buzz {
+            display: inline-block;
+            position: relative;
+        }
+
+        .buzz:hover {
+            animation-name: buzz;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards
+        }
+        @keyframes buzzout {
+            0% {
+                transform: skew(0deg);    
+                transform-origin: 20% 70%;
+            }
+
+            20% {
+                transform: skew(-8deg);
+                transform-origin: 20% 70%;
+            }
+
+            40% {
+                transform: skew(8deg);
+                transform-origin: 20% 70%;
+
+            }
+
+            60% {
+                transform: skew(-8deg);
+                transform-origin: 20% 70%;
+            }
+
+            80% {
+               
+                transform: skew(8deg);
+                 transform-origin: 20% 70%;
+            }
+
+            100% { 
+                transform: skew(0deg);
+                transform-origin:  20% 70%;
+            }
+        }
+
+        .buzzout {
+            display: inline-block;
+            position: relative;
+        }
+
+        .buzzout:hover {
+            animation-name: buzzout;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+        @keyframes backward {
+            0% {
+                left: 0;
+            }
+            100% { 
+                left: 10px;
+            }
+        }
+
+        .backward {
+            display: inline-block;
+            position: relative;
+        }
+
+        .backward:hover {
+            animation-name: backward;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+        @keyframes foward {
+            0% {
+                left: 0;
+            }
+            100% { 
+                left: 10px;
+            }
+        }
+
+        .foward {
+            display: inline-block;
+            position: relative;
+        }
+
+        .foward:hover {
+            animation-name: foward;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes fade {
+            form {}
+
+            to {
+                background-color: lightblue;
+                color: white;
+            }
+        }
+
+        .fade {
+            display: inline-block;
+        }
+
+        .fade:hover {
+            animation-name: fade;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards
+        }
+
+        @keyframes backpulse {
+            0% {
+                background-color: lightblue;
+
+            }
+
+            25% {
+                background-color: rgba(0, 129, 173, 0.668);
+                ;
+            }
+
+            50% {
+                background-color: lightblue;
+            }
+
+            75% {
+                background-color: rgba(0, 129, 173, 0.668);
+            }
+
+            100% {
+                background-color: lightblue;
+                color: white;
+            }
+        }
+
+        .backpulse {
+            display: inline-block;
+        }
+
+        .backpulse:hover {
+            animation-name: backpulse;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards
+        }
+
+        .STR {
+            display: inline-block;
+            position: relative;
+        }
+
+        @keyframes run1 {
+            from {
+                color: black;
+            }
+
+            to {
+                color: white;
+            }
+
+        }
+
+
+        @keyframes run {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+
+        }
+
+        .STR .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: -1;
+            background-color: rgb(1, 40, 179);
+
+            /* transform: all 3s linear; */
+        }
+
+        .STR:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .STR:hover .mask {
+            animation-name: run;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .STL {
+            display: inline-block;
+            position: relative;
+        }
+
+        @keyframes run2 {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .STL:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .STL .mask {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            z-index: -1;
+            background-color: rgb(1, 40, 179);
+            /* transform: all 3s linear; */
+        }
+
+        .STL:hover .mask {
+            animation-name: run2;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        .STB {
+            display: inline-block;
+            position: relative;
+        }
+
+        @keyframes run3 {
+            from {
+                height: 0%;
+            }
+
+            to {
+                height: 100%;
+            }
+        }
+
+        .STB:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .STB .mask {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            z-index: -1;
+            background-color: rgb(1, 40, 179);
+            /* transform: all 3s linear; */
+        }
+
+        .STB:hover .mask {
+            animation-name: run3;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        .STT {
+            display: inline-block;
+            position: relative;
+        }
+
+        @keyframes run4 {
+            from {
+                height: 0%;
+            }
+
+            to {
+                height: 100%;
+            }
+        }
+
+        .STT:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .STT .mask {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            z-index: -1;
+            background-color: rgb(1, 40, 179);
+            /* transform: all 3s linear; */
+        }
+
+        .STT:hover .mask {
+            animation-name: run3;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes run4 {
+            from {
+                width: 0%;
+            }
+
+            80% {
+                width: 100%;
+            }
+
+            90% {
+                width: 80%;
+            }
+
+            100% {
+                width: 100%;
+            }
+
+        }
+
+
+        .BTR .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: -1;
+            background-color: rgb(1, 40, 179);
+
+            /* transform: all 3s linear; */
+        }
+
+        .BTR:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .BTR:hover .mask {
+            animation-name: run4;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes run5 {
+            from {
+                width: 0%;
+            }
+
+            80% {
+                width: 100%;
+            }
+
+            90% {
+                width: 80%;
+            }
+
+            100% {
+                width: 100%;
+            }
+
+        }
+
+        .BTL .mask {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            z-index: -1;
+            background-color: rgb(1, 40, 179);
+
+            /* transform: all 3s linear; */
+        }
+
+        .BTL:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .BTL:hover .mask {
+            animation-name: run5;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes run6 {
+            from {
+                height: 0%;
+            }
+
+            80% {
+                height: 100%;
+            }
+
+            90% {
+                height: 80%;
+            }
+
+            100% {
+                height: 100%;
+            }
+
+        }
+
+        .BTB .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+            background-color: rgb(1, 40, 179);
+
+            /* transform: all 3s linear; */
+        }
+
+        .BTB:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .BTB:hover .mask {
+            animation-name: run6;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes run6 {
+            from {
+                height: 0%;
+            }
+
+            80% {
+                height: 100%;
+            }
+
+            90% {
+                height: 80%;
+            }
+
+            100% {
+                height: 100%;
+            }
+
+        }
+
+        .BTT .mask {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+            background-color: rgb(1, 40, 179);
+
+            /* transform: all 3s linear; */
+        }
+
+        .BTT:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .BTT:hover .mask {
+            animation-name: run6;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes run7 {
+            from {
+                transform: scale(0.4);
+                border-radius: 50%;
+            }
+
+            50% {
+                transform: scale(0.7);
+                border-radius: 50%;
+            }
+
+            100% {
+                transform: scale(1);
+                border-radius: 0;
+            }
+
+        }
+
+        .RO .mask {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            z-index: -1;
+
+
+            /* transform: all 3s linear; */
+        }
+
+        .RO:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .RO:hover .mask {
+            background-color: rgb(1, 40, 179);
+            animation-name: run7;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes run8 {
+            from {
+                transform: scale(1);
+                border-radius: 0;
+            }
+
+            50% {
+                transform: scale(0.5);
+                border-radius: 50%;
+            }
+
+            100% {
+                transform: scale(0);
+                border-radius: 50%;
+            }
+        }
+
+        .RI .mask {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+            /* background-color: rgba(158, 158, 158, 0.329); */
+            /* transform: all 3s linear; */
+        }
+
+        .RI:hover {
+            animation-name: run1;
+            background-color: rgb(1, 40, 179);
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .RI:hover .mask {
+            background-color: rgba(255, 255, 255, 0.818);
+            animation-name: run8;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes run9 {
+            from {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.5);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        .RI2 .mask {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+            /* background-color: rgba(158, 158, 158, 0.329); */
+            /* transform: all 3s linear; */
+        }
+
+        .RI2:hover {
+            animation-name: run1;
+            background-color: rgb(1, 40, 179);
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .RI2:hover .mask {
+            background-color: rgba(255, 255, 255, 0.818);
+            animation-name: run9;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes run10 {
+            from {
+                transform: scale(0.4);
+            }
+
+            50% {
+                transform: scale(0.7);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        .RO2 .mask {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .RO2:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .RO2:hover .mask {
+            background-color: rgb(1, 40, 179);
+            animation-name: run10;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes run11 {
+            from {
+                width: 0;
+            }
+            100% {
+                width: 50%;
+            }
+        }
+
+        .SIH .mask {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .SIH .mask2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .SIH:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .SIH:hover .mask{
+            background-color: rgb(1, 40, 179);
+            animation-name: run11;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+        .SIH:hover .mask2{
+            background-color: rgb(1, 40, 179);
+            animation-name: run11;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+        @keyframes run11 {
+            from {
+                width: 0;
+            }
+            100% {
+                width: 50%;
+            }
+        }
+
+        .SOH .mask {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .SOH .mask2 {
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .S0H:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .SOH:hover .mask{
+            background-color: rgb(1, 40, 179);
+            animation-name: run11;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+        .SOH:hover .mask2{
+            background-color: rgb(1, 40, 179);
+            animation-name: run11;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+        @keyframes run12 {
+            from {
+               height: 0;
+            }
+            100% {
+                height: 50%;
+            }
+        }
+
+        .SIV .mask {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .SIV .mask2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .SIV:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .SIV:hover .mask{
+            background-color: rgb(1, 40, 179);
+            animation-name: run12;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+        .SIV:hover .mask2{
+            background-color: rgb(1, 40, 179);
+            animation-name: run12;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+        @keyframes run12 {
+            from {
+               height: 0;
+            }
+            100% {
+                height: 50%;
+            }
+        }
+
+        .SOV .mask {
+            position: absolute;
+            bottom: 50%;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .SOV .mask2 {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .SOV:hover {
+            animation-name: run1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+
+        .SOV:hover .mask{
+            background-color: rgb(1, 40, 179);
+            animation-name: run12;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+        .SOV:hover .mask2{
+            background-color: rgb(1, 40, 179);
+            animation-name: run12;
+            animation-duration: .5s;
+            animation-timing-function: linear;
+            /* animation-iteration-count: infinite; */
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="line">
+        <div class="grow">Grow</div>
+        <div class="shrink">Shrink</div>
+        <div class="pulse">Pulse</div>
+        <div class="pulsegrow">Pulse Grow</div>
+        <div class="pulseshrink">Pulse Shrink</div>
+        <div class="push">Push</div>
+        <div class="pop">Pop</div>
+    </section>
+    <section class="line">
+        <div class="bouncein">Biunce In</div>
+        <div class="bounceout">Biunce Out</div>
+        <div class="rotate">Rotate</div>
+        <div class="growrotate">Grow Rotate</div>
+        <div class="float">Float</div>
+        <div class="sink">Sink</div>
+        <div class="bob">Bob</div>
+    </section>
+    <section class="line">
+        <div class="hang">Hang</div>
+        <div class="skew">Skew</div>
+        <div class="skewfoword">Skew Foward</div>
+        <div class="skewbackword">Skew Backward</div>
+        <div class="wobblehorizontal">Wobble Horizontal</div>
+    </section>
+    <section class="line">
+        <div class="wobblevertical">Wobble Vertical</div>
+        <div class="wobbleTBR">Wobble To Bottem Right</div>
+        <div class="wobbleTTR">Wobble To Top Right</div>
+        <div class="wobbleTop">Wobble Top</div>
+    </section>
+    <section class="line">
+        <div class="wobbleBottom">Wobble Bottom</div>
+        <div class="wobbleskew">Wobble Skew</div>
+        <div class="buzz">Buzz</div>
+        <div class="buzzout">Buzz Out</div>
+        <div class="foward">Foward</div>
+        <div class="backward">Backward</div>
+    </section>
+    <hr>
+    <section class="line">
+        <div class="fade">Fade</div>
+        <div class="backpulse">Back Pulse</div>
+        <div class="STR">Sweep To Right
+            <span class="mask"></span>
+        </div>
+        <div class="STL">Sweep To Left
+            <span class="mask"></span>
+        </div>
+        <div class="STB">Sweep To Bottom
+            <span class="mask"></span>
+        </div>
+    </section>
+    <section class="line">
+        <div class="STT">Sweep To TOP
+            <span class="mask"></span>
+        </div>
+        <div class="BTR">Bounce To Right
+            <span class="mask"></span>
+        </div>
+        <div class="BTL">Bounce To Left
+            <span class="mask"></span>
+        </div>
+        <div class="BTB">Bounce To Bottom
+            <span class="mask"></span>
+        </div>
+    </section>
+    <section class="line">
+        <div class="BTT">Bounce To Top
+            <span class="mask"></span>
+        </div>
+        <div class="RO">Radial Out
+            <span class="mask"></span>
+        </div>
+        <div class="RI">Radial In
+            <span class="mask"></span>
+        </div>
+        <div class="RI2">Rectangle In
+            <span class="mask"></span>
+        </div>
+        <div class="RO2">Rectangle Out
+            <span class="mask"></span>
+        </div>
+    </section>
+    <section class="line">
+        <div class="SIH">Shutter In Horizontal
+            <span class="mask"></span>
+            <span class="mask2"></span>
+        </div>
+        <div class="SOH">Shutter Out Horizontal
+            <span class="mask"></span>
+            <span class="mask2"></span>
+        </div>
+        <div class="SIV"> Shutter In Vertical
+            <span class="mask"></span>
+            <span class="mask2"></span>
+        </div>
+    </section>
+    <section class="line">
+        <div class="SOV"> Shutter Out Vertical
+            <span class="mask"></span>
+            <span class="mask2"></span>
+        </div>
+    </section>
+</body>
+
+</html>
