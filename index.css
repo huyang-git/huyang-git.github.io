@@ -259,4 +259,5 @@ a {
     width: 320px;
     height: 270px;
     position: relative;
+    border-radius: 5px;
 }

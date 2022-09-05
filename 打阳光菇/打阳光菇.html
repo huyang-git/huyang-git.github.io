@@ -71,11 +71,11 @@
         }, 500);
         function end() {
             clearInterval(t);
-
-            z = Number(Cookies.get("max"));
+            if (Cookies.get("max")) {
+                z = Number(Cookies.get("max"));
+            }
             if (z < h) {
                 z = h;
-
                 Cookies.set("max", z, { expires: 7 });
                 alert("你点击的不是阳光菇,你被僵尸吃掉了脑子!!!"
                     + "\n"

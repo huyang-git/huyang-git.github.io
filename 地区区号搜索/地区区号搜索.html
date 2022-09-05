@@ -22,18 +22,6 @@
             margin-left: 20px;
             visibility: hidden;
         }
-/* 
-        .city {
-            position: fixed;
-            top: 90px;
-            left: 30%;
-        }
-
-        .district {
-            position: fixed;
-            top: 90px;
-            left: 60%;
-        } */
 
         li {
             font-size: 18px;
@@ -71,6 +59,10 @@
             width: 150px;
             height: 30px;
         }
+        #text2 {
+            width: 250px;
+            height: 30px;
+        }
     </style>
     <title>地区搜索</title>
 </head>
@@ -79,12 +71,14 @@
     <div class="stage">
         <div class="input">
             <input type="text" placeholder="请输入想搜索的区号" required="required" id="text">
-            <input type="button" value="搜索">
+            <input type="button" value="搜索" id="btn1">
+            <input type="text" placeholder="请输入想搜索的地区(不要输入重名的地区)" required="required" id="text2">
+            <input type="button" value="搜索" id="btn2">
         </div>
         <button>请选择省份</button>
         <button>所选省份下辖城市</button>
         <button>所选城市下辖地区</button>
-        
+
         <ul class="province"> </ul>
         <ul class="city"></ul>
         <ul class="district"></ul>
@@ -92,7 +86,7 @@
 
     <script src="./prov-county.json"></script>
     <script>
-        var pliEl = document.querySelectorAll(".province li");
+        var ulEl = document.querySelectorAll("ul");
         var pro = [];
         var cit = [];
         var dis = [];
@@ -102,9 +96,14 @@
         var c = 0;
         var d = 0;
         var z = 0;
+        var z2 = 0;
+        var z3 = 0;
 
-        var btn = document.querySelector("input[value = 搜索]");
-        var inp = document.querySelector("input[type = text]");
+
+        var btn = document.querySelector("#btn1");
+        var inp = document.querySelector("#text");
+        var btn2 = document.querySelector("#btn2");
+        var inp2 = document.querySelector("#text2");
 
         $("button:first").click(function () {
             $("ul:first").css("visibility", "visible")
@@ -135,13 +134,12 @@
                     // console.log(po);
                     node = "<li>" + po.slice(3, po.length) + "<span>" + po.slice(0, 2) + "</span>" + "</li>";
                     $(".province").append(node);
-
                 });
 
                 $(".province li").click(function () {
                     var aaa = $(this).text().slice(0, $(this).text().length - $(this).find("span").text().length);
                     var a = $(this).find("span").text();
-                    $("ul").eq(1).css("visibility", "visible")
+                    $("ul").eq(1).css("visibility", "visible");
                     $(this).addClass("active").siblings().removeClass("active");
                     $(".city").html("");
                     $(".district").html("");
@@ -164,7 +162,6 @@
                         });
 
                         $(".district li").click(function () {
-                            $("ul").eq(2).css("visibility", "visible");
                             $(this).addClass("active").siblings().removeClass("active");
                             var ccc = $(this).text().slice(0, $(this).text().length - $(this).find("span").text().length);
                             var that = $(this).find("span").text();
@@ -179,16 +176,19 @@
         getAndRender();
 
         function check(el) {
-            return el.slice(0,2) == inp.value;
+            return el.slice(0, 2) == inp.value;
         }
         function check2(el) {
-            return el.slice(0,4) == inp.value;
+            return el.slice(0, 4) == inp.value;
         }
         function check3(el) {
-            return el.slice(0,6) == inp.value;
+            return el.slice(0, 6) == inp.value;
         }
-        
+
         btn.onclick = function () {
+
+            $(".city").html("");
+            $(".district").html("");
             var str = "";
             var aa = inp.value.slice(0, 2);
             var bb = inp.value.slice(0, 4);
@@ -222,9 +222,123 @@
             if (!(pro.some(check) || cit.some(check2) || dis.some(check3))) {
                 alert("请输入正确的区号!");
             }
-
             inp.value = "";
         }
+
+        function check4(el) {
+            return el.slice(3, el.length) == inp2.value;
+        }
+        function check5(el) {
+            return el.slice(5, el.length) == inp2.value;
+        }
+        function check6(el) {
+            return el.slice(7, el.length) == inp2.value;
+        }
+
+        btn2.onclick = function () {
+            var str = "";
+            var str2 = "";
+            var str3 = "";
+            var val = inp2.value;
+
+            pro.forEach(function (el) {
+                if (el.slice(3, el.length) == inp2.value) {
+                    str = el.slice(0, 2);
+                    ulEl[0].style.visibility = "visible";
+                    $(".province li").eq(z).addClass("active").siblings().removeClass("active");
+                    alert("该地区的区号为:" + str);
+                }
+                z++;
+            })
+            z = 0;
+
+
+            cit.forEach(function (el) {
+                if (el.slice(5, el.length) == inp2.value) {
+                    str = el.slice(0, 4);
+                    str2 = el.slice(0, 2);
+                    cit.forEach(function (ci) {
+                        if (ci.slice(0, 2) == str2) {
+                            $(".city").append("<li>" + ci.slice(5, ci.length) + "<span>" + ci.slice(0, 4) + "</span>" + "</li>");
+                        }
+                    });
+                    ulEl[0].style.visibility = "visible";
+                    ulEl[1].style.visibility = "visible";
+                    alert("该地区的区号为:" + str);
+                }
+
+            })
+            cit.forEach(function (el) {
+                if (el.slice(0, 4) == str) {
+                    $(".city li").eq(z2).addClass("active").siblings().removeClass("active");
+                }
+                if (el.slice(0, 2) == str2) {
+                    z2++;
+                }
+            })
+            z2 = 0;
+            pro.forEach(function (el) {
+                if (el.slice(0, 2) == str2) {
+                    $(".province li").eq(z).addClass("active").siblings().removeClass("active");
+                }
+                z++;
+            });
+            z = 0;
+            dis.forEach(function (el) {
+                if (el.slice(7, el.length) == inp2.value) {
+                    str = el.slice(0, 6);
+                    str2 = el.slice(0, 2);
+                    str3 = el.slice(0, 4);
+                    cit.forEach(function (ci) {
+                        if (ci.slice(0, 2) == str2) {
+                            $(".city").append("<li>" + ci.slice(5, ci.length) + "<span>" + ci.slice(0, 4) + "</span>" + "</li>");
+                        }
+                    });
+                    dis.forEach(function (di) {
+                        if (di.slice(0, 4) == str3) {
+                            $(".district").append("<li>" + di.slice(7, di.length) + "<span>" + di.slice(0, 6) + "</span>" + "</li>");
+                        }
+                    });
+                    ulEl[0].style.visibility = "visible";
+                    ulEl[1].style.visibility = "visible";
+                    ulEl[2].style.visibility = "visible";
+                    alert("该地区的区号为:" + str);
+                }
+            })
+            pro.forEach(function (el) {
+                if (el.slice(0, 2) == str2) {
+                    $(".province li").eq(z).addClass("active").siblings().removeClass("active");
+                }
+                z++;
+            });
+
+            dis.forEach(function (el) {
+                if (el.slice(0, 6) == str) {
+                    $(".district li").eq(z3).addClass("active").siblings().removeClass("active");
+                }
+                if (el.slice(0, 4) == str3) {
+                    z3++;
+                }
+            })
+
+            cit.forEach(function (el) {
+                if (el.slice(0, 4) == str3) {
+                    $(".city li").eq(z2).addClass("active").siblings().removeClass("active");
+                }
+                if (el.slice(0, 2) == str2) {
+                    z2++;
+                }
+            })
+
+            if (!(pro.some(check4) || cit.some(check5) || dis.some(check6))) {
+                alert("请输入正确的地区名称!");
+            }
+            inp2.value = "";
+            z = 0;
+            z2 = 0;
+            z3 = 0;
+        }
+
     </script>
 </body>
 
