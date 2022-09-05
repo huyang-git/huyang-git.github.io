@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fangda {
+            width: 1510px;
+            height: 1000px;
+        }
+
+        .thumb {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+
+        .thumb img {
+            width: 100%;
+            display: block;
+        }
+
+        .thumb .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+
+        .fangda .zoom {
+            width: 300px;
+            height: 300px;
+            background-image: url("./2.jpg");
+            opacity: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fangda">
+        <div class="thumb">
+            <img src="./2.jpg" alt="">
+            <div class="mask"></div>
+        </div>
+        <hr>
+        <div class="zoom"> </div>
+    </div>
+
+    <script>
+        //放大镜插件:
+        //fangda(放大倍数,图片地址,放大图的宽度,放大图的高度)
+
+        fangda(4,"./3.jpg",300,300);
+
+
+
+
+
+
+        function fangda(beishu,img,wid,hei) {
+            var arr = [];
+            arr.push(beishu);
+            arr.push(img);
+            arr.push(wid);
+            arr.push(hei);
+            console.log(arr);
+            
+            var level = 3;//放大倍数
+            var imgEl = document.querySelector('img');
+            var deg = / ^g/g
+            console.log(imgEl.src);
+            var imgs=[];
+            console.log(img);
+            imgs[0]=img;
+            imgs[1]="./2.jpg"
+            console.log(imgs[0]);
+            var thumbEl = document.querySelector(".fangda .thumb");
+            var maskEl = document.querySelector(".fangda .thumb .mask");
+            var zoomEl = document.querySelector(".fangda .zoom");
+            var fangda = document.getElementsByClassName("fangda")[0];
+            var wid,hei;
+            //设置背景图的大小
+
+            if (arr[3] === undefined) {
+                alert("请补全所有参数");
+            }
+
+            if (typeof (arr[0]) ==="number"&& arr[0]>0 &&arr[0]<10)  {
+                level = arr[0];
+            }else{
+                alert("请输入放大倍数")
+            }
+            if (typeof (arr[1]) ==="string") {
+                imgEl.src = arr[1]
+                zoomEl.style.backgroundImage = `url('${imgs[0]}')`
+            }else{
+                imgEl.src = "./2.jpg";
+                zoomEl.style.backgroundImage = `url('${imgs[1]}')`
+            }
+            if (typeof (arr[2]) ==="number"&& arr[2]>=300) {
+                 zoomEl.style.width=arr[2]+"px";
+            }else{
+                alert("请输入放大图的宽度");
+            }
+           if (typeof (arr[3]) ==="number"&& arr[3]>=300) {
+            zoomEl.style.hei=arr[3]+"px";
+           }
+           else{
+            alert("请输入放大图的高度")
+           }
+            
+
+            zoomEl.style["background-size"] = level * 100 + "%";
+
+            var zoomWidth = zoomEl.offsetWidth;
+            var zoomHeight = zoomEl.offsetHeight;//放大图的宽高
+
+            var thumbElWidth = thumbEl.offsetWidth;
+            var thumbElHeight = thumbEl.offsetHeight;//缩略图的宽高
+
+            var maskElWidth = thumbElWidth / level;
+            var maskElHeight = thumbElHeight / level;//遮罩层的宽高
+
+            maskEl.style.width = maskElWidth + "px";
+            maskEl.style.height = maskElHeight + "px";//设置遮罩层的宽高
+
+            var offsetLeft = thumbEl.offsetLeft;
+            var offsetTop = thumbEl.offsetTop;
+
+            thumbEl.onmousemove = function () {
+
+                var mx = event.pageX - offsetLeft;
+                var my = event.pageY - offsetTop;  //鼠标的坐标
+
+                var maskX = mx - maskElWidth / 2;
+                var maskY = my - maskElHeight / 2;//遮罩层的左上角坐标
+                if (maskX < 0) {
+                    maskX = 0;
+                }
+                if (maskX > thumbElWidth - maskElWidth) {
+                    maskX = thumbElWidth - maskElWidth;
+                }
+                if (maskY < 0) {
+                    maskY = 0;
+                }
+                if (maskY > thumbElHeight - maskElHeight) {
+                    maskY = thumbElHeight - maskElHeight;
+                }
+
+                // 遮罩层跟着鼠标走
+                maskEl.style.left = maskX + "px";
+                maskEl.style.top = maskY + "px";
+
+                zoomEl.style["background-position"] =
+                    -(zoomWidth / maskElWidth) * maskX + "px " + -(zoomHeight / maskElHeight) * maskY + "px";
+
+                //第一个px后面一定要加空格,代表position的两个参数!!!!!!!!!!
+            };
+
+            thumbEl.onmouseleave = function () {
+                zoomEl.style.opacity = "0";
+            }
+
+            thumbEl.onmouseenter = function () {
+                zoomEl.style.opacity = "1";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

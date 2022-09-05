@@ -236,6 +236,12 @@ h3 {
     background-repeat: no-repeat;
 }
 
+.fangda {
+    background-image: url(./imgs/放大镜插件.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .yinyue {
     background-image: url(./imgs/音乐.png);
     background-size: cover;
