@@ -128,6 +128,14 @@ p{
     justify-content: space-evenly;
     align-content: space-around;
 }
+.jq {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
 
 .css3 {
     width: 100%;
@@ -276,6 +284,12 @@ p{
 
 .qumin {
     background-image: url(./imgs/取名.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.manhua {
+    background-image: url(./imgs/漫画.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

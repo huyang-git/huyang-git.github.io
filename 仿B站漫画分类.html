@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="never">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="./my-minireset.css"> -->
+    <title>B站漫画分类</title>
+    <style>
+        .stage {
+            width: 98vw;
+            height: 96vh;
+        }
+
+        .wrap {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        p {
+            font-size: 14px;
+            color: rgb(179, 179, 179);
+        }
+
+        span {
+            font-size: 14px;
+            margin-left: 30px;
+            margin-top: 14px;
+        }
+
+        span:hover {
+            cursor: pointer;
+        }
+
+        .style {
+            display: flex;
+        }
+
+        .areald {
+            display: flex;
+        }
+
+        .finish {
+            display: flex;
+        }
+
+        .free {
+            display: flex;
+
+        }
+
+        .order {
+            display: flex;
+        }
+
+        .box {
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .box div {
+            width: 220px;
+            height: 220px;
+            margin-right: 10px;
+            display: inline;
+        }
+
+        .box img {
+            width: 220px;
+            height: 180px;
+        }
+
+        .box p {
+            font-size: 14px;
+            margin-top: -5px;
+            color: blue;
+        }
+
+        .disabled {
+            pointer-events: none;
+        }
+        .border{
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="wrap">
+            <div class="style">
+                <p class="pp">题材</p>
+                <span>全部</span> <span>热血 </span> <span>古风 </span><span>玄幻</span><span>奇幻</span>
+                <span>悬疑</span> <span>都市</span> <span>历史</span> <span>武侠仙侠</span> <span>游戏竞技 </span>
+                <span>悬疑灵异</span> <span>架空</span><span>青春</span><span>西幻</span><span>现代</span><span>正能量</span>
+                <span>科幻</span>
+            </div>
+            <div class="areald">
+                <p class="pp">地区</p>
+                <span>全部 </span><span>大陆</span><span>日本 </span><span>韩国</span><span>其他</span>
+            </div>
+            <div class="finish">
+                <p class="pp">进度</p>
+                <span>全部</span><span>连载 </span><span>完结</span>
+            </div>
+            <div class="free">
+                <p class="pp">收费</p>
+                <span>全部 </span> <span>免费</span><span>付费</span><span>等就免费</span>
+            </div>
+            <div class="order">
+                <p class="pp">排序</p>
+                <span>人气推荐</span><span>更新时间</span><span>追漫人数</span><span>上架时间</span>
+            </div>
+            <div class="box">
+            </div>
+        </div>
+    </div>
+    <script>
+        var style = document.querySelector(".style");
+        var area = document.querySelector(".areald");
+        var finish = document.querySelector(".finish");
+        var box = document.querySelector(".box");
+        var free = document.querySelector(".free");
+        var order = document.querySelector(".order");
+        var span = document.querySelectorAll("span");
+        var styleEl = document.querySelectorAll(".style span");
+        var arealdEl = document.querySelectorAll(".areald span");
+        var finishEl = document.querySelectorAll(".finish span");
+        var freedEl = document.querySelectorAll(".free span");
+        var orderEl = document.querySelectorAll(".order span");
+        var sty = [-1, 999, 997, 1016, 998, 1023, 1002, 1096, 1092, 1088, 1081, 1063, 1060, 1054, 1048, 1028, 1015];
+        var are = [-1, 1, 2, 6, 5];
+        var fin = [-1, 0, 1];
+        var fre = [-1, 1, 2, 3];
+        var ord = [0, 1, 2, 3];
+        var z1 = -1;
+        var z2 = -1;
+        var z3 = -1;
+        var z4 = -1;
+        var z5 = 0;
+        var pp = document.querySelectorAll(".pp");
+
+        pp.forEach(function (el) {
+            el.classList.add("disabled");
+        });
+
+        function getJSON(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    callback(JSON.parse(xhr.response));
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+        for (var i = 0; i < styleEl.length; i++) {
+            styleEl[i].border = i;
+        }
+        for (var i = 0; i < arealdEl.length; i++) {
+            arealdEl[i].border = i;
+        }
+        for (var i = 0; i < finishEl.length; i++) {
+            finishEl[i].border = i;
+        }
+        for (var i = 0; i < freedEl.length; i++) {
+            freedEl[i].border = i;
+        }
+        for (var i = 0; i < orderEl.length; i++) {
+            orderEl[i].border = i;
+        }
+
+        styleEl[0].style.color = "lightblue";
+        arealdEl[0].style.color = "lightblue";
+        finishEl[0].style.color = "lightblue";
+        freedEl[0].style.color = "lightblue";
+        orderEl[0].style.color = "lightblue";
+
+        function randow() {
+            getJSON("https://apis.netstart.cn/bcomic/ClassPage?styleId=" + z1 + "&areaId=" + z2 + "&isFinish=" + z3 + "&order=" + z5 + "&pageNum=1&pageSize=39&isFree=" + z4, function (res) {
+                res.data.forEach(function (el) {
+                    var node = document.createElement("div");
+                    node.innerHTML = `<img src="${el.horizontal_cover}"></img>
+                        <p>${el.title}</p>`;
+                    box.appendChild(node);
+                });
+            });
+        }
+
+        randow();
+
+        //https://apis.netstart.cn/bcomic/ClassPage?styleId=999&areaId=-1&isFinish=-1&order=0&pageNum=1&pageSize=39&isFree=-1
+        style.addEventListener('click', function (e) {
+            if (e.target) {
+                z1 = sty[e.target.border];
+                box.innerHTML = "";
+                styleEl.forEach(function (el) {
+                    el.style.color = "black";
+                });
+                e.target.style.color = "lightblue";
+                console.log(sty[e.target.border]);
+                randow();
+            }
+        });
+        area.addEventListener('click', function (e) {
+            if (e.target) {
+                z2 = are[e.target.border];
+                box.innerHTML = "";
+                arealdEl.forEach(function (el) {
+                    el.style.color = "black";
+                });
+
+                e.target.style.color = "lightblue";
+                randow();
+            }
+        });
+        finish.addEventListener('click', function (e) {
+            if (e.target) {
+                z3 = fin[e.target.border];
+                box.innerHTML = "";
+
+                finishEl.forEach(function (el) {
+                    el.style.color = "black";
+                });
+
+                e.target.style.color = "lightblue";
+                randow();
+            }
+        });
+        free.addEventListener('click', function (e) {
+            if (e.target) {
+                z4 = fre[e.target.border];
+                box.innerHTML = "";
+                freedEl.forEach(function (el) {
+                    el.style.color = "black";
+                });
+
+                e.target.style.color = "lightblue";
+                randow();
+            }
+        });
+        order.addEventListener('click', function (e) {
+            if (e.target) {
+                z5 = ord[e.target.border];
+                console.log(z5);
+                box.innerHTML = "";
+                orderEl.forEach(function (el) {
+                    el.style.color = "black";
+                });
+                e.target.style.color = "lightblue";
+                randow();
+            }
+        })
+
+
+
+
+    </script>
+
+</body>
+
+</html>
