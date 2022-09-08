@@ -65,21 +65,21 @@
         }
 
         .box div {
-            width: 220px;
-            height: 220px;
-            margin-right: 10px;
+            width: 180px;
+            height: 280px;
+            margin-right: 60px;
             display: inline;
         }
 
         .box img {
-            width: 220px;
-            height: 180px;
+            width: 180px;
+            height: 220px;
         }
 
         .box p {
             font-size: 14px;
             margin-top: -5px;
-            color: blue;
+            color: rgb(0, 0, 0);
         }
 
         .disabled {
@@ -154,6 +154,7 @@
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
+                    
                     callback(JSON.parse(xhr.response));
                 }
             };
@@ -187,7 +188,7 @@
             getJSON("https://apis.netstart.cn/bcomic/ClassPage?styleId=" + z1 + "&areaId=" + z2 + "&isFinish=" + z3 + "&order=" + z5 + "&pageNum=1&pageSize=39&isFree=" + z4, function (res) {
                 res.data.forEach(function (el) {
                     var node = document.createElement("div");
-                    node.innerHTML = `<img src="${el.horizontal_cover}"></img>
+                    node.innerHTML = `<img src="${el.vertical_cover}"></img>
                         <p>${el.title}</p>`;
                     box.appendChild(node);
                 });
