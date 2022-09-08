@@ -5,31 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>放大镜-多图</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.1.1/css/all.css" />
     <style>
         .fangda {
             width: 1510px;
-            height: 300px;
+            height: 1000px;
             position: relative;
         }
 
         #left {
             width: 20px;
-            font-size: 32px;
+            font-size: 28px;
             height: 20px;
             position: absolute;
             color: #2b4f6e;
-            top: 135px;
+            top: 330px;
             left: -55px;
         }
 
         #right {
             width: 20px;
-            font-size: 32px;
+            font-size: 28px;
             height: 20px;
             position: absolute;
-            top: 135px;
+            top: 330px;
             color: #2b4f6e;
             left: 340px;
 
@@ -38,6 +38,7 @@
         .thumb {
             width: 300px;
             height: 300px;
+            margin-top: 50px;
             position: relative;
             margin-left: 300px;
         }
@@ -65,8 +66,11 @@
         .fangda .zoom {
             width: 300px;
             height: 300px;
-            margin-left: 300px;
-            position: relative;
+            margin-left: 150px;
+            /* position: relative; */
+            position: absolute;
+            top: 0;
+            left: 650px;
             overflow: hidden;
         }
 
@@ -75,12 +79,12 @@
             top: 0;
             display: block;
             left: 0;
-            
+
         }
 
         .fangda ul.dots {
             position: absolute;
-            bottom: 20px;
+            bottom: -70px;
             left: 0;
             width: 100%;
             list-style: none;
@@ -91,14 +95,37 @@
 
         }
 
-        .fangda ul.dots li {
-            width: 20px;
-            height: 20px;
-            background-color: rgb(227, 98, 98);
-            margin: 0 20px;
-            border-radius: 50%;
-            z-index: 99;
+        .dot1 {
+            background-image: url("./1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid  red;
+
         }
+        .dot2 {
+            background-image: url("./2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid  red;
+
+        }
+        .dot3 {
+            background-image: url("./3.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid  red;
+            
+        }
+
+         .fangda ul.dots li {
+            width: 50px;
+            height: 50px;
+            margin: 0 20px;
+            border: 3px solid  red;
+        } 
     </style>
 </head>
 
@@ -111,14 +138,13 @@
             <i id="left" class="fa fa-arrow-left" aria-hidden="true"></i>
             <i id="right" class="fa fa-arrow-right" aria-hidden="true"></i>
             <ul class="dots">
-                <li></li>
-                <li></li>
-                <li></li>
+                <li class="dot1"></li>
+                <li class="dot2"></li>
+                <li class="dot3"></li>
             </ul>
             <div class="mask">
             </div>
         </div>
-        <hr>
         <div class="zoom">
             <img src="./1.jpg" alt="">
             <img src="./2.jpg" alt="">
@@ -159,16 +185,17 @@
             for (var i = 0; i < imgs.length; i++) {
                 if (i === n) {
                     imgs[i].style.opacity = 1;
-                    dots[i].style.background = "white";
+                    // dots[i].style.background = "white";
+                    dots[i].style.border = "3px solid red"
                     zoomImgEl[i].style.opacity = 1;
 
                 } else {
                     imgs[i].style.opacity = 0;
-                    dots[i].style.background = "rgb(227, 98, 98)"
+                    dots[i].style.border = "none";
                     zoomImgEl[i].style.opacity = 0;
                 }
             }
-        }
+        };
 
         showIt(0);
 
@@ -177,25 +204,26 @@
             dots[i].onclick = function () {
                 console.log(this.title);
                 var currents = Number(this.title);
+
                 current = currents;//里面的currents来改变外面的current!!!    
                 showIt(currents);
-            }
+            };
         }
         for (var i = 0; i < 3; i++) {
-            
-             zoomImgEl[i].style.width = level * 100 + "%";
+
+            zoomImgEl[i].style.width = level * 100 + "%";
+            zoomImgEl[i].style.height = level * 100 + "%";
         }
-       
+
         arrowle.onclick = function () {
 
             current--;
             if (current < 0) {
                 current = imgs.length - 1;
-
             }
             console.log(current);
             showIt(current);
-        }
+        };
 
         function showNext() {
             current++;
@@ -206,16 +234,16 @@
         }
         arrowri.onclick = showNext;
 
-      
-      
+
+
 
         thumbEl.onmousemove = function () {
-           
+
             var mx = event.pageX - offsetLeft;
             var my = event.pageY - offsetTop;  //鼠标的坐标
 
             var maskX = mx - maskElWidth / 2;
-            var maskY = my - maskElHeight / 2;//遮罩层的左上角坐标
+            var maskY = my - maskElHeight ;//遮罩层的左上角坐标
             if (maskX < 0) {
                 maskX = 0;
             }
@@ -233,13 +261,13 @@
             maskEl.style.left = maskX + "px";
             maskEl.style.top = maskY + "px";
 
-            zoomImgEl[current].style.left = -(zoomWidth / maskElWidth) * maskX   + "px";
-            zoomImgEl[current].style.top = -(zoomHeight / maskElHeight) * maskY   + "px";//把遮罩层的左上角坐标和放大图对应
+            zoomImgEl[current].style.left = -(zoomWidth / maskElWidth) * maskX + "px";
+            zoomImgEl[current].style.top = -(zoomHeight / maskElHeight) * maskY + "px";//把遮罩层的左上角坐标和放大图对应
         };
 
         thumbEl.onmouseleave = function () {
             zoomImgEl[current].style.opacity = "0";
-        }
+        };
 
         thumbEl.onmouseenter = function () {
             zoomImgEl[current].style.opacity = "1";
