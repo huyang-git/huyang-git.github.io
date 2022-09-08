@@ -172,7 +172,6 @@
             <div class="restart">重新开始</div>
         </section>
     </div>
-
     <script src="./js.cookie.min.js"></script>
 
     <script>
@@ -214,12 +213,11 @@
                     event.stopPropagation();//阻止冒泡!
                     z++;
                 }
-
             };
         }
 
         Dot.prototype.move = function () {
-            this.y += z / 3000 + 0.03
+            this.y += z / 3000 + 0.03;
         };
 
         Dot.prototype.updateView = function () {
@@ -262,7 +260,7 @@
                 function end() {
                     clearInterval(id);
                     overEl.style.display = "block";
-                   
+
                     overmark.innerText = z;
                     if (Cookies.get("baimax")) {
                         h = Number(Cookies.get("baimax"));
@@ -271,10 +269,9 @@
                         h = z;
                         Cookies.set("baimax", h, { expires: 7 });
                         maxmark.innerText = h;
-                    }else{
+                    } else {
                         maxmark.innerText = h;
                     }
-
                 }
                 mainEl.onclick = function () {
                     end();
@@ -287,7 +284,6 @@
                 })[0];
                 // console.log(firstUnPlayed);
                 if (firstUnPlayed && (firstUnPlayed.y) * 150 >= 600) {
-                    //   console.log("触底");
                     end();
                 }
                 // 判断所有已经点击的 是否超出视口范围 y
@@ -303,11 +299,10 @@
                 }
                 markEl.innerText = z;
             }, 30);
-        }
+        };
 
         restart.onclick = function () {
             location.reload();
-
         };
 
     </script>
